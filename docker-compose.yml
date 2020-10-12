@@ -1,0 +1,34 @@
+version: '3'
+
+# サービスの定義
+services:
+    db:
+        image: mysql:5.7
+        environment:
+            MYSQL_USER: root
+            MYSQL_ROOT_PASSWORD: password
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./db/mysql/volumes:/var/lib/mysql
+
+    web:
+        # 同じディレクトリ配下にあるDockerfileをビルド
+        build: .
+        command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+        # ローカルPCのディレクトリをrubyコンテナにマウント
+        volumes:
+            - .:/myapp
+            - gem_data:/usr/local/bundle
+        # アプリ公開ポートを指定<公開ポート番号>:<コンテナ内の転送先ポート>
+        ports:
+            - 3000:3000
+        depends_on:
+            - db 
+        # デバッグに使用するため設定
+        tty: true
+        stdin_open: true
+
+# マウントするデータ領域を指定
+volumes:
+  gem_data:
