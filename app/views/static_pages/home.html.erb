@@ -1,2 +1,65 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-2" data-slide-to="1"></li>
+  </ol>
+  <div id="title-image" class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+        <img src="/assets/family.jpg" alt="responsive image" class="d-block image-fluid w-100">
+        <h1>育児・妊娠について悩みはありませんか？</h2>
+        <p>ここはそういう悩みをみんなで解決するコミュニティーです</p>
+    </div>
+    <div class="carousel-item">
+        <img src="/assets/baby.jpg" alt="responsive image" class="d-block image-fluid w-100">
+        <h1>一人で抱え込むのはやめましょう</h1>
+        <p>聞きたいことや気になっていることを"チルシェア"しよう</p>
+    </div>
+  </div>
+ </div>
+ <div class="help">
+     <h3>Chi-Shaとは？</h3>
+     <p>育児共有<p> 
+     <h1><span>Chi</span>ldcare<span>Sha</span>ring</h1>
+     <div class="flex">
+        <div class="img-item">
+            <p class="description">育児中、または妊娠中は悩みがいっぱい。<br>
+            「赤ちゃんの効果的な寝かしつけ方は？」<br>
+            「お腹が痛くなり始めた時どうしてるんだろう？」<br>
+            「赤ちゃんが泣き止むみんなのおすすめな曲は？」<br>
+            こういった悩みや疑問を,<br>
+            ネットで探しても欲しい答えが見つからない。<br>
+            実体験をふまえた解決方法を知りたい。<br>
+            そういった悩みを"Chi-Sha"で共有してみませんか？
+            </p>
+        </div>
+        <div class="img-item">
+            <img src="/assets/description.jpg" class="rounded-circle">
+        </div>
+    </div>
+ </div>
+ <div class="make">
+    <h1>Chi-Shaの使い方</h1>
+    <div class="feature-list">
+        <div class="feature-item">
+            <img src="/assets/see.jpg" height="300px">
+            <h2>悩みを検索して見る</h2>
+            <p>自分が抱えている悩み疑問を検索して<br>
+            ユーザーの投稿から調べて見る</p>
+        </div>
+        <div class="feature-item">
+            <img src="/assets/hear.jpg" height="300px">
+            <h2>悩みを聞く</h2>
+            <p>自分が抱えている悩みや疑問を<br>
+            コメントして聞いてみる</p>
+        </div>
+        <div class="feature-item">
+            <img src="/assets/answer.jpg" height="280px">
+            <h2>悩みを聞いて教える</h2>
+            <p>他のユーザーの悩みや疑問に答えて<br>
+            一緒に解決する</p>
+        </div>
+ </div>
+</div>
+<div class="go">
+    <%= link_to "Chi-Shaを始める", "#", class: "btn btn-primary" %>
+</div>
