@@ -1,2 +1,24 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<% provide(:title, "ログイン") %>
+
+<div class="signup-block">
+  <div class="signup-group">
+    <h1 class=sign-title>ログイン</h1>
+    <%= form_for(:session, url: login_path, local: true) do |f| %>
+      <div class="field"> 
+        <%= f.label :email, "メールアドレス" %>
+        <%= f.email_field :email, class: "form-control", id: "user_email" %>
+      </div>
+      <div class="field"> 
+        <%= f.label :password, "パスワード" %>
+        <%= f.password_field :password, class: "form-control", id: "user_password" %>
+      </div>
+      <div class="actions">
+        <%= f.submit "ログイン", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+    <div class="guide">
+      <br>ユーザー登録されていない方は<%= link_to 'こちら', signup_path %><br>
+      パスワードをお忘れの方は<%= link_to 'こちら', '#' %>
+    </div>
+  </div>
+</div>
