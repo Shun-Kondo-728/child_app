@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+
   describe "signup page" do
     before do
       visit signup_path
@@ -16,7 +17,7 @@ RSpec.describe "Users", type: :system do
     end
 
     context "User registration process" do
-      it "If you register as a valid user, a flash of successful user registration will be displayed" do
+      it "A flash of success is displayed when registering as a valid user" do
         fill_in "名前", with: "Example User"
         fill_in "メールアドレス", with: "user@example.com"
         fill_in "パスワード", with: "password"
