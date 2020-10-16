@@ -211,11 +211,21 @@ footer {
     border-radius: 20px;
   }
 }
+
+.field_with_errors {
+    input {
+        @extend .is-invalid;
+      }
+    .form-control {
+      color: rgb(243, 116, 116);
+    }
+  }
 //profilepage
 .indroduction-title {
   padding-top: 100px;
   text-align: center;
 }
+
 
 @media screen and (min-width: 768px) {
   .help {
