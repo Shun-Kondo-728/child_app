@@ -39,3 +39,9 @@ Style/MixinUsage:
 
 Style/MutableConstant:
   Enabled: false
+
+Lint/AssignmentInCondition:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false

@@ -20,7 +20,7 @@ RSpec.describe "Sessions", type: :request do
     delete logout_path
     expect(is_logged_in?).not_to be_truthy
     redirect_to root_url
-    delete logout_path 
+    delete logout_path
     follow_redirect!
   end
 
