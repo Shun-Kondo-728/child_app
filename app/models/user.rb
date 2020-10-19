@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-attr_accessor :remember_token
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 25 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -8,20 +7,20 @@ attr_accessor :remember_token
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  attr_accessor :remember_token
 
-class << self
-  # 渡された文字列のハッシュ値を返す
-  def digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
-  end
+  class << self
+    # 渡された文字列のハッシュ値を返す
+    def digest(string)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      BCrypt::Password.create(string, cost: cost)
+    end
 
-  # ランダムなトークンを返す
-  def new_token
-    SecureRandom.urlsafe_base64
+    # ランダムなトークンを返す
+    def new_token
+      SecureRandom.urlsafe_base64
+    end
   end
-end
 
   # 永続セッションのためにユーザーをデータベースに記憶する
   def remember
