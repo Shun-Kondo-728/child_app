@@ -1,0 +1,33 @@
+<% provide(:title, "プロフィール編集") %>
+
+<div class="signup-block">
+  <div class="signup-group">
+    <h1 class="sign-title">プロフィール編集</h1>
+    <%= form_with model: @user, local: true do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="gravatar_edit">
+        <%= gravatar_for(@user, size: 40) %>
+        <%= @user.name %>
+        <a href="http://gravatar.com/emails" target="_blank">プロフィール写真を変更</a>
+      </div>
+      <div class="field">  
+        <%=f.label :name, "名前"%>
+        <%=f.text_field :name, class: "form-control"%>
+      </div>
+            
+      <div class="field"> 
+        <%=f.label :email, "メールアドレス"%>
+        <%=f.email_field :email, class: "form-control"%>
+      </div>  
+
+      <div class="field"> 
+        <%=f.label :introduction, "自己紹介"%>
+        <%=f.text_area :introduction, class: "form-control"%>
+      </div>  
+            
+      <div class="actions">  
+        <%=f.submit '更新する', class: "btn btn-primary"%>
+      </div>
+    <% end %>
+  </div>
+</div>
