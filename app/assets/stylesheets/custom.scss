@@ -264,6 +264,19 @@ footer {
 .guide {
     text-align: center;
 }
+//indexpage
+.index-summary {
+    padding-top: 100px;
+}
+.users {
+    list-style: none;
+    margin: 0;
+    li {
+      overflow: auto;
+      padding: 10px 0;
+      border-bottom: 1px solid gray;
+    }
+   }
 
 @media screen and (min-width: 768px) {
   .help {
