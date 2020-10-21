@@ -58,7 +58,7 @@ RSpec.describe User, type: :model do
     end
   end
 
-  context "authenticated?メソッド" do
+  context "authenticated?method" do
     it "Return false if the digest does not exist" do
       expect(user.authenticated?('')).to eq false
     end

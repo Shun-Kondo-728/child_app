@@ -32,6 +32,11 @@ module SessionsHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
+  def current_user?(user)
+    user == current_user
+  end
+
+
   # 永続的セッションを破棄する
   def forget(user)
     user.forget

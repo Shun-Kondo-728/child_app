@@ -38,14 +38,46 @@ RSpec.describe "Users", type: :system do
     end
   end
 
+  describe "Profile edit page" do
+    before do
+      login_for_system(user)
+      visit user_path(user)
+      click_link "プロフィール編集"
+    end
+
+    context "Page layout" do
+      it "Make sure the correct title is displayed" do
+        expect(page).to have_title full_title('プロフィール編集')
+      end
+    end
+
+    it "A flash of successful updates is displayed after a valid profile update" do
+      fill_in "名前", with: "Edit Example User"
+      fill_in "メールアドレス", with: "edit-user@example.com"
+      fill_in "自己紹介", with: "編集：お願いします"
+      click_button "更新する"
+      expect(page).to have_content "プロフィールが更新されました！"
+      expect(user.reload.name).to eq "Edit Example User"
+      expect(user.reload.email).to eq "edit-user@example.com"
+      expect(user.reload.introduction).to eq "編集：お願いします"
+    end
+
+    it "Appropriate error message is displayed when trying to update an invalid profile" do
+      fill_in "名前", with: ""
+      fill_in "メールアドレス", with: ""
+      click_button "更新する"
+      expect(page).to have_content '名前を入力してください'
+      expect(page).to have_content 'メールアドレスを入力してください'
+      expect(page).to have_content 'メールアドレスは不正な値です'
+      expect(user.reload.email).not_to eq ""
+    end
+  end
+
   describe "Profile page" do
     context "Page layout" do
       before do
+        login_for_system(user)
         visit user_path(user)
-      end
-
-      it "Make sure the profile string exists" do
-        expect(page).to have_content 'プロフィール'
       end
 
       it "Make sure the correct title is displayed" do

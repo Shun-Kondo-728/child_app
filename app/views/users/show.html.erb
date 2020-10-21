@@ -13,7 +13,7 @@
             <%= @user.introduction %>
         </div>
         <% if current_user == @user %>
-            <div class="user-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
+            <div id="user-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
         <% end %>
         </div>
     </div>
