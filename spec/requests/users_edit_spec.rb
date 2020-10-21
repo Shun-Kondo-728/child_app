@@ -5,10 +5,10 @@ RSpec.describe "Profile edit", type: :request do
   let!(:other_user) { create(:user) }
 
   context "For authorized users" do
-    it "The response is displayed normally" do
-      login_for_request(user)
+    it "The response is displayed normally (+ friendly forwarding)" do
       get edit_user_path(user)
-      expect(response).to render_template('users/edit')
+      login_for_request(user)
+      expect(response).to redirect_to edit_user_url(user)
       patch user_path(user), params: { user: { name: "Example User",
                                                email: "user@example.com",
                                                introduction: "お願いします" } }
