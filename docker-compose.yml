@@ -28,6 +28,7 @@ services:
         # デバッグに使用するため設定
         tty: true
         stdin_open: true
+        
 # マウントするデータ領域を指定
 volumes:
   gem_data:

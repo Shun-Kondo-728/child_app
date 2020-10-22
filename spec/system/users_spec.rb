@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
+  let!(:admin_user) { create(:user, :admin) }
 
   describe "User list page" do
     it "pagination" do
@@ -52,6 +53,14 @@ RSpec.describe "Users", type: :system do
       login_for_system(user)
       visit user_path(user)
       click_link "プロフィール編集"
+    end
+
+    context "Account deletion process", js: true do
+      it "What can be deleted correctly" do
+        click_link "アカウントを削除する"
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content "自分のアカウントを削除しました"
+      end
     end
 
     context "Page layout" do
