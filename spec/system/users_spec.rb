@@ -3,6 +3,15 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
 
+  describe "User list page" do
+    it "pagination" do
+      create_list(:user, 31)
+      login_for_system(user)
+      visit users_path
+      expect(page).to have_css ".pagination"
+    end
+  end
+
   describe "signup page" do
     before do
       visit signup_path
