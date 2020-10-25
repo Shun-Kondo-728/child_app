@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :post do
-    title "MyString"
-    recommended 1
-    description "MyText"
-    user nil
+    title { "もしこうなったら使えます" }
+    recommended { 5 }
+    description { "こうやって使います" }
+    association :user
   end
 end
