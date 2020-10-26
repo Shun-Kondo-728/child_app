@@ -4,6 +4,16 @@ RSpec.describe "Delete user", type: :request do
   let!(:admin_user) { create(:user, :admin) }
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
+  let!(:new_post) { create(:post, user: user) }
+
+  context "When the user associated with the dish is deleted" do
+    it "Dishes associated with the user are also deleted" do
+      login_for_request(user)
+      expect {
+        delete user_path(user)
+      }.to change(Post, :count).by(-1)
+    end
+  end
 
   context "For admin users" do
     it "After deleting the user, redirect to the user list page" do

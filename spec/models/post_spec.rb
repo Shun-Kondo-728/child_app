@@ -2,6 +2,9 @@ require 'rails_helper'
 require 'faker'
 
 RSpec.describe Post, type: :model do
+  let!(:post_yesterday) { create(:post, :yesterday) }
+  let!(:post_one_week_ago) { create(:post, :one_week_ago) }
+  let!(:post_one_month_ago) { create(:post, :one_month_ago) }
   let!(:post) { create(:post) }
 
   context "Validation" do
@@ -43,6 +46,12 @@ RSpec.describe Post, type: :model do
       post = build(:post, recommended: 6)
       post.valid?
       expect(post.errors[:recommended]).to include("は5以下の値にしてください")
+    end
+  end
+
+  context "Sort order" do
+    it "The most recent post is the first post" do
+      expect(post).to eq Post.first
     end
   end
 end
