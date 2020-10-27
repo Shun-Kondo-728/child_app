@@ -4,6 +4,13 @@ User.create!(name:  "鈴木 一郎",
     password_confirmation: "foobar",
     admin: true)
 
+20.times do |n|
+    Post.create!(title: "赤ちゃんが泣き止まない時はこれ！",
+                 description: "この曲を流せば泣き止みます",
+                 recommended: 4,
+                 user_id: 1)
+end
+
 99.times do |n|
 name  = Faker::Name.name
 email = "sample-#{n+1}@example.com"
