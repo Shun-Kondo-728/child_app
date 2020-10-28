@@ -1,7 +1,14 @@
 <% if logged_in? %>
-   <div class="container">
-    <h3 class="post-title">ユーザーの投稿 (<%= @feed_items.count %>)</h3>
-    <%= render 'shared/feed' %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <h3 class="post-title">ユーザーの投稿 (<%= @feed_items.count %>)</h3>
+        <%= render 'shared/feed' %>
+      </div>
+      <div class="col-md-2">
+        <p><%= link_to "投稿する", new_post_path, class: "btn btn-primary btn-lg btn-record" %></p>
+      </div>
+    </div>
   </div>
 <% else %>
     <div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">

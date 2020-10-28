@@ -343,6 +343,22 @@ footer {
       border: 0;
     }
   }
+//postbutton
+.btn-record {
+    margin-top: 5em;
+    background-color: rgb(26, 105, 224);
+    border-color: rgb(26, 105, 224);
+  }
+
+//postnew
+.input-need {
+    color: red;
+    font-size: 13px;
+  }
+  
+  .input-unneed {
+    font-size: 13px;
+  }
 
 @media screen and (min-width: 768px) {
   .help {
