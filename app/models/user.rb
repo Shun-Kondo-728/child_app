@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  paginates_per 10
   has_many :posts, dependent: :destroy
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 25 }
@@ -39,6 +38,10 @@ class User < ApplicationRecord
   # ユーザーのログイン情報を破棄する
   def forget
     update_attribute(:remember_digest, nil)
+  end
+
+  def feed
+    Post.where("user_id = ?", id)
   end
 
   private
