@@ -95,6 +95,7 @@ RSpec.describe "Users", type: :system do
     context "Page layout" do
       before do
         login_for_system(user)
+        create_list(:post, 20, user: user)
         visit user_path(user)
       end
 
@@ -105,6 +106,23 @@ RSpec.describe "Users", type: :system do
       it "Confirm that user information is displayed" do
         expect(page).to have_content user.name
         expect(page).to have_content user.introduction
+      end
+
+      it "Confirm that the number of posts is displayed" do
+        expect(page).to have_content "投稿 (#{user.posts.count})"
+      end
+
+      it "Confirm that the post information is displayed" do
+        Post.take(10).each do |post|
+          expect(page).to have_link post.title
+          expect(page).to have_content post.description
+          expect(page).to have_content post.user.name
+          expect(page).to have_content post.recommended
+        end
+      end
+
+      it "Make sure the post pagination is displayed" do
+        expect(page).to have_css ".pagination"
       end
     end
   end
