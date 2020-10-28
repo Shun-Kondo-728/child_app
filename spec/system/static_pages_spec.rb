@@ -20,6 +20,10 @@ RSpec.describe "StaticPages", type: :system do
       let!(:user) { create(:user) }
       let!(:new_post) { create(:post, user: user) }
 
+      before do
+        login_for_system(user)
+      end
+
       it "post pagination should be displayed" do
         login_for_system(user)
         create_list(:post, 20, user: user)
@@ -29,6 +33,11 @@ RSpec.describe "StaticPages", type: :system do
         Post.take(10).each do |d|
           expect(page).to have_link d.title
         end
+      end
+
+      it "the link to post is displayed" do
+        visit root_path
+        expect(page).to have_link "投稿する", href: new_post_path
       end
     end
   end
