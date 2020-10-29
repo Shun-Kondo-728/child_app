@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 30 }
-  validates :description, length: { maximum: 200 }
+  validates :description, length: { maximum: 200 }, presence: true
   validates :recommended,
             :numericality => {
               :only_interger => true,

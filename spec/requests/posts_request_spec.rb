@@ -5,10 +5,32 @@ RSpec.describe "Posts", type: :request do
     let!(:new_post) { create(:post, user: user) }
 
     context "for logged-in users" do
-      it "the response is displayed normally" do
+      before do
         login_for_request(user)
         get new_post_path
+      end
+
+      it "the response is displayed normally" do
         expect(response).to have_http_status "200"
+        expect(response).to render_template('posts/new')
+      end
+
+      it "being able to register with valid cooking data" do
+        expect {
+          post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
+                                              description: "この曲が、一番オススメです！",
+                                              recommended: 4 } }
+        }.to change(Post, :count).by(1)
+        follow_redirect!
+        expect(response).to render_template('static_pages/home')
+      end
+
+      it "cannot be registered with invalid food data" do
+        expect {
+          post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
+                                              description: "",
+                                              recommended: 4 } }
+        }.not_to change(Post, :count)
         expect(response).to render_template('posts/new')
       end
     end

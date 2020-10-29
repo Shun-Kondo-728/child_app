@@ -4,17 +4,17 @@
     <%= form_with model: @post, local: true do |f| %>
       <%= render "shared/error_messages", object: f.object %>
       <div class="field">
-        <%=f.label :title, "タイトル"%> <span class="input-need">※必須</span>
+        <%=f.label :title, "タイトル"%>
         <%=f.text_field :title, class: "form-control",id: "post_name"%>
       </div>
             
       <div class="field"> 
-        <%=f.label :description, "説明"%> <span class="input-need">※必須</span>
+        <%=f.label :description, "説明"%>
         <%=f.text_area :description, class: "form-control"%>
       </div>  
             
       <div class="field"> 
-        <%=f.label :recommended, "オススメ度"%> <span class="input-need">※必須</span>
+        <%=f.label :recommended, "オススメ度"%>
         <%=f.text_field :recommended, class: "form-control"%>
       </div>  
             
