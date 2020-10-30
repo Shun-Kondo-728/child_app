@@ -45,3 +45,6 @@ Lint/AssignmentInCondition:
 
 Rails/HelperInstanceVariable:
   Enabled: false
+
+Airbnb/DefaultScope:
+  Enabled: false

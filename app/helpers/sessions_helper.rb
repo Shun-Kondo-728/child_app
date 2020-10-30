@@ -46,7 +46,6 @@ module SessionsHelper
     user == current_user
   end
 
-
   # 永続的セッションを破棄する
   def forget(user)
     user.forget
