@@ -1,0 +1,11 @@
+<% provide(:title, "#{@post.title}") %>
+
+<div class="container">
+  <div class="post-show">
+    <h2 class="posts-title"><%= @post.title %></h2>
+    <h4 class="post-description"><%= @post.description %></h4>
+    <div class="post-info">
+      <h5>人気度：<%= @post.recommended %></h5>
+    </div>
+  </div>
+</div>

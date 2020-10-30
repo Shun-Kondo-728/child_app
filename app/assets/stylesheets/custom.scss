@@ -371,6 +371,17 @@ footer {
   .alert {
       margin-top: 120px;
   }
+  //postshowpage
+  .post-show {
+      display: block;
+      margin-top: 100px;
+      .posts-title,.post-description {
+        padding-bottom: 30px;
+      }
+      h5 {
+          font-size: 15px;
+      }
+  }
 @media screen and (min-width: 768px) {
   .help {
     img {

@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
   let!(:user) { create(:user) }
+  let!(:new_post) { create(:post, user: user) }
 
   describe "post page" do
     before do
@@ -42,6 +43,25 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_content "タイトルを入力してください"
           expect(page).to have_content "説明を入力してください"
         end
+    end
+  end
+
+  describe "post details page" do
+    context "page layout" do
+      before do
+        login_for_system(user)
+        visit post_path(new_post)
+      end
+
+      it "the correct title is displayed" do
+        expect(page).to have_title full_title("#{new_post.title}")
+      end
+
+      it "post information is displayed" do
+        expect(page).to have_content new_post.title
+        expect(page).to have_content new_post.description
+        expect(page).to have_content new_post.recommended
+      end
     end
   end
 end

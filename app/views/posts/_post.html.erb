@@ -1,6 +1,6 @@
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
-  <span class="title"><%= link_to post.title, "#" %></span>
+  <span class="title"><%= link_to post.title, post_path(post) %></span>
   <span class="description"><%= post.description %></span><br>
   <span class="recommended">人気度：<%= post.recommended %></span><br>
   <span class="timestamp">

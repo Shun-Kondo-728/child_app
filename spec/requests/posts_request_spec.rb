@@ -22,7 +22,7 @@ RSpec.describe "Posts", type: :request do
                                               recommended: 4 } }
         }.to change(Post, :count).by(1)
         follow_redirect!
-        expect(response).to render_template('static_pages/home')
+        expect(response).to render_template('posts/show')
       end
 
       it "cannot be registered with invalid food data" do
