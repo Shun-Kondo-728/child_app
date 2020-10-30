@@ -23,6 +23,10 @@
       <div class="actions">  
         <%=f.submit '更新する', class: "btn btn-primary"%>
       </div>
+      <div class="post-delete">
+      <%= link_to "投稿を削除する", post_path(@post), method: :delete,
+                             data: { confirm: "本当にこの投稿を削除してもよろしいですか？" } %>
+      </div>    
     <% end %>
   </div>
 </div>

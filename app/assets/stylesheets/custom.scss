@@ -347,6 +347,18 @@ footer {
   .delete-account {
       text-align: center;
   }
+
+  .post-delete {
+      text-align: center;
+  }
+
+  .change-post {
+    display: inline-block;
+  }
+  
+  .edit-post .delete-post {
+    font-size: 15px;
+  }
 //postbutton
 .btn-record {
     margin-top: 5em;
