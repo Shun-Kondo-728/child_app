@@ -64,4 +64,44 @@ RSpec.describe "Posts", type: :system do
       end
     end
   end
+
+  describe "post edit page" do
+    before do
+      login_for_system(user)
+      visit post_path(new_post)
+      click_link "編集"
+    end
+
+    context "page layout" do
+      it "the correct title is displayed" do
+        expect(page).to have_title full_title('投稿の編集')
+      end
+
+      it "appropriate label is displayed in the input part" do
+        expect(page).to have_content 'タイトル'
+        expect(page).to have_content '説明'
+        expect(page).to have_content 'オススメ度'
+      end
+    end
+
+    context "post update process" do
+        it "valid updates" do
+          fill_in "post[title]", with: "編集：赤ちゃんが泣き止むおもちゃ"
+          fill_in "説明", with: "編集：このおもちゃを鳴らせば泣き止む！"
+          fill_in "オススメ度", with: 4
+          click_button "更新する"
+          expect(page).to have_content "投稿が更新されました！"
+          expect(new_post.reload.title).to eq "編集：赤ちゃんが泣き止むおもちゃ"
+          expect(new_post.reload.description).to eq "編集：このおもちゃを鳴らせば泣き止む！"
+          expect(new_post.reload.recommended).to eq 4
+        end
+
+        it "invalid update" do
+          fill_in "post[title]", with: ""
+          click_button "更新する"
+          expect(page).to have_content 'タイトルを入力してください'
+          expect(new_post.reload.title).not_to eq ""
+        end
+    end
+  end
 end

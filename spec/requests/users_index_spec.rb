@@ -20,7 +20,7 @@ RSpec.describe "User list page", type: :request do
     end
   end
 
-  it "admin属性の変更が禁止されていること" do
+  it "change of admin attribute is prohibited" do
     login_for_request(user)
     expect(user.admin).to be_falsey
     patch user_path(user), params: { user: { password: user.password,

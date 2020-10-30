@@ -6,13 +6,14 @@ RSpec.describe "Posts", type: :request do
 
     context "for logged-in users" do
       before do
-        login_for_request(user)
         get new_post_path
+        login_for_request(user)
       end
 
-      it "the response is displayed normally" do
-        expect(response).to have_http_status "200"
-        expect(response).to render_template('posts/new')
+      context "friendly forwarding" do
+        it "the response is displayed normally" do
+          expect(response).to redirect_to new_post_url
+        end
       end
 
       it "being able to register with valid cooking data" do
