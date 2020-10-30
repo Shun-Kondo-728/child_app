@@ -3,6 +3,11 @@
 <div class="container">
   <div class="post-show">
     <h2 class="posts-title"><%= @post.title %></h2>
+    <div class="change-dish">
+      <% if current_user == @post.user %>
+        <%= link_to "編集", edit_post_path(@post), class: 'edit-dish' %>　
+      <% end %>
+    </div>
     <h4 class="post-description"><%= @post.description %></h4>
     <div class="post-info">
       <h5>人気度：<%= @post.recommended %></h5>
