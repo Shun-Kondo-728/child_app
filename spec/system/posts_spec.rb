@@ -63,6 +63,18 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content new_post.recommended
       end
     end
+
+    context "delete post", js: true do
+        it "a flash of successful deletion is displayed" do
+          login_for_system(user)
+          visit post_path(new_post)
+          within find('.change-post') do
+            click_on '削除'
+          end
+          page.driver.browser.switch_to.alert.accept
+          expect(page).to have_content '投稿が削除されました'
+        end
+    end
   end
 
   describe "post edit page" do
@@ -101,6 +113,14 @@ RSpec.describe "Posts", type: :system do
           click_button "更新する"
           expect(page).to have_content 'タイトルを入力してください'
           expect(new_post.reload.title).not_to eq ""
+        end
+    end
+
+    context "post deletion process", js: true do
+        it "a flash of successful deletion is displayed" do
+          click_on '削除'
+          page.driver.browser.switch_to.alert.accept
+          expect(page).to have_content '投稿が削除されました'
         end
     end
   end

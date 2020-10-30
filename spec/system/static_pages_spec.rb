@@ -39,6 +39,13 @@ RSpec.describe "StaticPages", type: :system do
         visit root_path
         expect(page).to have_link "投稿する", href: new_post_path
       end
+
+      it "after deleting a post, a flash of successful deletion is displayed" do
+        visit root_path
+        click_on '削除'
+        page.driver.browser.switch_to.alert.accept
+        expect(page).to have_content '投稿が削除されました'
+      end
     end
   end
 end
