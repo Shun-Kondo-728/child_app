@@ -16,5 +16,10 @@
     <div class="post-info">
       <h5>人気度：<%= @post.recommended %></h5>
     </div>
+    <div class="col-md-4">
+      <span class="picture">
+        <%= link_to((image_tag @post.picture.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
+      </span>
+    </div>
   </div>
 </div>

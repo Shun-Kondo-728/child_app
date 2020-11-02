@@ -16,7 +16,12 @@
       <div class="field"> 
         <%=f.label :recommended, "オススメ度"%>
         <%=f.text_field :recommended, class: "form-control"%>
-      </div>  
+      </div>
+
+      <span class="picture">
+        <%= f.label :picture, "写真"%> <span class="input-unneed">※任意</span>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control' %>
+      </span>  
             
       <div class="actions">  
         <%=f.submit '投稿する', class: "btn btn-primary"%>
