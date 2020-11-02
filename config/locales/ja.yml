@@ -24,6 +24,7 @@ ja:
         recommended: オススメ度
         description: 説明     
         user_id: 作成者のID
+        picture: 料理の写真
   date:
     abbr_day_names:
     - 日
