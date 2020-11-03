@@ -14,6 +14,12 @@
         <%=f.label :description, "説明"%>
         <%=f.text_area :description, class: "form-control"%>
       </div>  
+
+      <span class="field">
+        <%= f.label :picture %> <span class="input-unneed">※任意</span>
+        <%= f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'post-picture' %>
+        <%= image_tag(@post.picture.thumb400.url) if @post.picture.url.present? %>
+      </span>
             
       <div class="field"> 
         <%=f.label :recommended, "オススメ度"%>

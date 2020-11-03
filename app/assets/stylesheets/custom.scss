@@ -180,7 +180,7 @@ footer {
 
 //sign_up
 .signup-block {
-  height: 800px;
+  height: 1300px;
   position: relative; 
   .signup-group {
     width: 700px;
@@ -393,6 +393,13 @@ footer {
       h5 {
           font-size: 15px;
       }
+  }
+  //image
+
+  .post-picture img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
   }
 @media screen and (min-width: 768px) {
   .help {

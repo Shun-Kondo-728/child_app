@@ -3,7 +3,7 @@
   <span class="title"><%= link_to post.title, post_path(post) %></span>
   <span class="description"><%= post.description %></span><br>
   <span>
-    <%= link_to((image_tag post.picture.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
+    <%= link_to((image_tag post.picture.thumb200.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
   </span>
   <span class="recommended">人気度：<%= post.recommended %></span><br>
   <span class="timestamp">
