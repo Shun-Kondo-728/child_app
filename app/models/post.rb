@@ -11,4 +11,13 @@ class Post < ApplicationRecord
               :greater_than_or_equal_to => 1,
               :less_than_or_equal_to => 5
             }
+  validate  :picture_size
+
+  private
+
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "：5MBより大きい画像はアップロードできません。")
+      end
+    end
 end
