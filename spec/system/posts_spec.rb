@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
   let!(:user) { create(:user) }
-  let!(:new_post) { create(:post, user: user) }
+  let!(:new_post) { create(:post, :picture, user: user) }
 
   describe "post page" do
     before do
@@ -31,6 +31,7 @@ RSpec.describe "Posts", type: :system do
           fill_in "post[title]", with: "赤ちゃんが泣き止む曲"
           fill_in "説明", with: "この曲が、一番オススメです！"
           fill_in "オススメ度", with: 4
+          attach_file "post[picture]", "#{Rails.root}/spec/fixtures/test_post.jpg"
           click_button "投稿する"
           expect(page).to have_content "投稿されました！"
         end
@@ -61,6 +62,7 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content new_post.title
         expect(page).to have_content new_post.description
         expect(page).to have_content new_post.recommended
+        expect(page).to have_link nil, href: post_path(new_post), class: 'post-picture'
       end
     end
 
@@ -100,11 +102,13 @@ RSpec.describe "Posts", type: :system do
         it "valid updates" do
           fill_in "post[title]", with: "編集：赤ちゃんが泣き止むおもちゃ"
           fill_in "説明", with: "編集：このおもちゃを鳴らせば泣き止む！"
+          attach_file "post[picture]", "#{Rails.root}/spec/fixtures/test_post2.jpg"
           fill_in "オススメ度", with: 4
           click_button "更新する"
           expect(page).to have_content "投稿が更新されました！"
           expect(new_post.reload.title).to eq "編集：赤ちゃんが泣き止むおもちゃ"
           expect(new_post.reload.description).to eq "編集：このおもちゃを鳴らせば泣き止む！"
+          expect(new_post.reload.picture.url).to include "test_post2.jpg"
           expect(new_post.reload.recommended).to eq 4
         end
 

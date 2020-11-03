@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe "Posts", type: :request do
     let!(:user) { create(:user) }
     let!(:new_post) { create(:post, user: user) }
+    let(:picture_path) { File.join(Rails.root, 'spec/fixtures/test_post.jpg') }
+    let(:picture) { Rack::Test::UploadedFile.new(picture_path) }
 
     context "for logged-in users" do
       before do
@@ -20,7 +22,8 @@ RSpec.describe "Posts", type: :request do
         expect {
           post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
                                              description: "この曲が、一番オススメです！",
-                                             recommended: 4 } }
+                                             recommended: 4,
+                                             picture: picture } }
         }.to change(Post, :count).by(1)
         follow_redirect!
         expect(response).to render_template('posts/show')
@@ -30,7 +33,8 @@ RSpec.describe "Posts", type: :request do
         expect {
           post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
                                              description: "",
-                                             recommended: 4 } }
+                                             recommended: 4,
+                                             picture: picture } }
         }.not_to change(Post, :count)
         expect(response).to render_template('posts/new')
       end

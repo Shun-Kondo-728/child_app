@@ -4,6 +4,8 @@ RSpec.describe "post edit", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, user: user) }
+  let(:picture2_path) { File.join(Rails.root, 'spec/fixtures/test_post2.jpg') }
+  let(:picture2) { Rack::Test::UploadedFile.new(picture2_path) }
 
   context "for authorized users" do
     it "the response is displayed normally" do
@@ -12,6 +14,7 @@ RSpec.describe "post edit", type: :request do
       expect(response).to redirect_to edit_post_path(new_post)
       patch post_path(new_post), params: { post: { title: "赤ちゃんが泣き止む曲",
                                                    description: "この曲が、一番オススメです！",
+                                                   picture: picture2,
                                                    recommended: 4 } }
       redirect_to new_post
       follow_redirect!
