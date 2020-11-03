@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   let(:user) { FactoryBot.create(:user) }
+  let!(:other_user) { create(:user) }
 
   context "Validation" do
     it "Must be valid if you have a name and email address" do
@@ -61,6 +62,16 @@ RSpec.describe User, type: :model do
   context "authenticated?method" do
     it "Return false if the digest does not exist" do
       expect(user.authenticated?('')).to eq false
+    end
+  end
+
+  context "follow function" do
+    it "follow and unfollow work properly" do
+      expect(user.following?(other_user)).to be_falsey
+      user.follow(other_user)
+      expect(user.following?(other_user)).to be_truthy
+      user.unfollow(other_user)
+      expect(user.following?(other_user)).to be_falsey
     end
   end
 end
