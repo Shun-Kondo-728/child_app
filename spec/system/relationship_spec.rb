@@ -5,6 +5,9 @@ RSpec.describe "Relationships", type: :system do
   let!(:user2) { create(:user) }
   let!(:user3) { create(:user) }
   let!(:user4) { create(:user) }
+  let!(:new_post) { create(:post, user: user) }
+  let!(:new_post2) { create(:post, user: user2) }
+  let!(:new_post3) { create(:post, user: user3) }
 
   describe "following page" do
     before do
@@ -76,6 +79,25 @@ RSpec.describe "Relationships", type: :system do
           end
         end
       end
+    end
+  end
+
+  describe "feed" do
+    before do
+      create(:relationship, follower_id: user.id, followed_id: user2.id)
+      login_for_system(user)
+    end
+
+    it "your feed contains your post" do
+      expect(user.feed).to include new_post
+    end
+
+    it "your feed contains posts from users you're following" do
+      expect(user.feed).to include new_post2
+    end
+
+    it "the feed does not contain posts from users you do not follow" do
+      expect(user.feed).not_to include new_post3
     end
   end
 end
