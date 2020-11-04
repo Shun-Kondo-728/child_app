@@ -48,3 +48,12 @@ Rails/HelperInstanceVariable:
 
 Airbnb/DefaultScope:
   Enabled: false
+
+Airbnb/RiskyActiverecordInvocation:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Layout/FirstArrayElementLineBreak:
+  Enabled: false

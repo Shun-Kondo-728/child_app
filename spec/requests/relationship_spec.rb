@@ -29,7 +29,7 @@ RSpec.describe "user follow function", type: :request do
       }.to change(user.following, :count).by(-1)
     end
 
-    it "being able to unfollow users" do
+    it "being able to unfollow users with Ajax" do
       user.follow(other_user)
       relationship = user.active_relationships.find_by(followed_id: other_user.id)
       expect {
@@ -37,7 +37,6 @@ RSpec.describe "user follow function", type: :request do
       }.to change(user.following, :count).by(-1)
     end
   end
-
 
   context "if you are not logged in" do
     it "redirect to the login page when jumping to the following page" do
