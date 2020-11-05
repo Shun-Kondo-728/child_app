@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
+  let!(:new_post) { create(:post, user: user) }
   let!(:admin_user) { create(:user, :admin) }
 
   describe "User list page" do
@@ -134,6 +135,20 @@ RSpec.describe "Users", type: :system do
           expect(page).to have_button 'フォロー中'
           click_button 'フォロー中'
           expect(page).to have_button 'フォローする'
+        end
+      end
+
+      context "like registration / cancellation" do
+        before do
+          login_for_system(user)
+        end
+
+        it "being able to register / unfavorite posts" do
+          expect(user.like?(new_post)).to be_falsey
+          user.like(new_post)
+          expect(user.like?(new_post)).to be_truthy
+          user.unlike(new_post)
+          expect(user.like?(new_post)).to be_falsey
         end
       end
     end
