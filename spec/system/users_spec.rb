@@ -126,6 +126,8 @@ RSpec.describe "Users", type: :system do
       it "Make sure the post pagination is displayed" do
         expect(page).to have_css ".pagination"
       end
+    end
+
       context "user follow / unfollow process", js: true do
         it "being able to follow / unfollow users" do
           login_for_system(user)
@@ -150,7 +152,42 @@ RSpec.describe "Users", type: :system do
           user.unlike(new_post)
           expect(user.like?(new_post)).to be_falsey
         end
+
+        it "being able to register / cancel likes from the top page", js: true do
+          visit root_path
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+          link.click
+          link = find('.unlike')
+          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+          link.click
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        end
+
+        it "being able to register / cancel likes from the individual user page", js: true do
+          visit user_path(user)
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+          link.click
+          link = find('.unlike')
+          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+          link.click
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        end
+
+        it "being able to register / cancel likes from the individual post page", js: true do
+          visit post_path(new_post)
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+          link.click
+          link = find('.unlike')
+          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+          link.click
+          link = find('.like')
+          expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        end
       end
-    end
   end
 end

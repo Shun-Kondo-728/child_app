@@ -1,0 +1,7 @@
+<div id="like-<%= @post.id %>">
+  <% if !current_user.nil? && current_user.like?(@post) %>
+    <%= render 'users/unlike' %>
+  <% else %>
+    <%= render 'users/like' %>
+  <% end %>
+</div>

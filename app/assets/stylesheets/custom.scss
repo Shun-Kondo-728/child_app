@@ -413,6 +413,14 @@ footer {
      margin-top: 80px;
   }
 
+  //like
+  .like-btn-unlike {
+    color: red;
+  }
+  .like-btn-like {
+    color: grey;
+  }
+
 @media screen and (min-width: 768px) {
   .help {
     img {
