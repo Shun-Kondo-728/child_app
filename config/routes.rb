@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   post   :login,     to: 'sessions#create'
   delete :logout,    to: 'sessions#destroy'
   resources :relationships, only: [:create, :destroy]
+  post   "likes/:post_id/create"  => "likes#create"
+  delete "likes/:post_id/destroy" => "likes#destroy"
 end
