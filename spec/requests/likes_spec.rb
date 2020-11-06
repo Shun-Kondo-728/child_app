@@ -4,6 +4,25 @@ RSpec.describe "Likes", type: :request do
   let(:user) { create(:user) }
   let(:new_post) { create(:post) }
 
+  context "view like list page" do
+    context "if you are logged in" do
+      it "the response is displayed normally" do
+        login_for_request(user)
+        get likes_path
+        expect(response).to have_http_status "200"
+        expect(response).to render_template('likes/index')
+      end
+    end
+
+    context "if you are not logged in" do
+      it "redirect to login screen" do
+        get likes_path
+        expect(response).to have_http_status "302"
+        expect(response).to redirect_to login_path
+      end
+    end
+  end
+
   context "like registration process" do
     context "if you are logged in" do
       before do

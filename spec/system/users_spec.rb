@@ -4,6 +4,7 @@ RSpec.describe "Users", type: :system do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, user: user) }
+  let!(:other_new_post) { create(:post, user: other_user) }
   let!(:admin_user) { create(:user, :admin) }
 
   describe "User list page" do
@@ -118,7 +119,6 @@ RSpec.describe "Users", type: :system do
         Post.take(10).each do |post|
           expect(page).to have_link post.title
           expect(page).to have_content post.description
-          expect(page).to have_content post.user.name
           expect(page).to have_content post.recommended
         end
       end
@@ -128,66 +128,87 @@ RSpec.describe "Users", type: :system do
       end
     end
 
-      context "user follow / unfollow process", js: true do
-        it "being able to follow / unfollow users" do
-          login_for_system(user)
-          visit user_path(other_user)
-          expect(page).to have_button 'フォローする'
-          click_button 'フォローする'
-          expect(page).to have_button 'フォロー中'
-          click_button 'フォロー中'
-          expect(page).to have_button 'フォローする'
-        end
+    context "user follow / unfollow process", js: true do
+      it "being able to follow / unfollow users" do
+        login_for_system(user)
+        visit user_path(other_user)
+        expect(page).to have_button 'フォローする'
+        click_button 'フォローする'
+        expect(page).to have_button 'フォロー中'
+        click_button 'フォロー中'
+        expect(page).to have_button 'フォローする'
+      end
+    end
+
+    context "like registration / cancellation" do
+      before do
+        login_for_system(user)
       end
 
-      context "like registration / cancellation" do
-        before do
-          login_for_system(user)
-        end
-
-        it "being able to register / unfavorite posts" do
-          expect(user.like?(new_post)).to be_falsey
-          user.like(new_post)
-          expect(user.like?(new_post)).to be_truthy
-          user.unlike(new_post)
-          expect(user.like?(new_post)).to be_falsey
-        end
-
-        it "being able to register / cancel likes from the top page", js: true do
-          visit root_path
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-          link.click
-          link = find('.unlike')
-          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
-          link.click
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-        end
-
-        it "being able to register / cancel likes from the individual user page", js: true do
-          visit user_path(user)
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-          link.click
-          link = find('.unlike')
-          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
-          link.click
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-        end
-
-        it "being able to register / cancel likes from the individual post page", js: true do
-          visit post_path(new_post)
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-          link.click
-          link = find('.unlike')
-          expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
-          link.click
-          link = find('.like')
-          expect(link[:href]).to include "/likes/#{new_post.id}/create"
-        end
+      it "being able to register / unfavorite posts" do
+        expect(user.like?(new_post)).to be_falsey
+        user.like(new_post)
+        expect(user.like?(new_post)).to be_truthy
+        user.unlike(new_post)
+        expect(user.like?(new_post)).to be_falsey
       end
+
+      it "being able to register / cancel likes from the top page", js: true do
+        visit root_path
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+      end
+
+      it "being able to register / cancel likes from the individual user page", js: true do
+        visit user_path(user)
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+      end
+
+      it "being able to register / cancel likes from the individual post page", js: true do
+        visit post_path(new_post)
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+        link.click
+        link = find('.unlike')
+        expect(link[:href]).to include "/likes/#{new_post.id}/destroy"
+        link.click
+        link = find('.like')
+        expect(link[:href]).to include "/likes/#{new_post.id}/create"
+      end
+
+      it "the likes list page is displayed as expected" do
+        visit likes_path
+        expect(page).not_to have_css ".like-post"
+        user.like(new_post)
+        user.like(other_new_post)
+        visit likes_path
+        expect(page).to have_css ".like-post", count: 2
+        expect(page).to have_content new_post.title
+        expect(page).to have_content new_post.description
+        expect(page).to have_content "posted by #{user.name}"
+        expect(page).to have_link user.name, href: user_path(user)
+        expect(page).to have_content other_new_post.title
+        expect(page).to have_content other_new_post.description
+        expect(page).to have_content "posted by #{other_user.name}"
+        expect(page).to have_link other_user.name, href: user_path(other_user)
+        user.unlike(other_new_post)
+        visit likes_path
+        expect(page).to have_css ".like-post", count: 1
+        expect(page).to have_content new_post.title
+      end
+    end
   end
 end
