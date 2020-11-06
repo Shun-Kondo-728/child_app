@@ -8,6 +8,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul id="subtitle" class="navbar-nav">
         <% if logged_in? %>
+          <li><%= link_to 'いいね', likes_path %></li>
           <li><%= link_to 'ユーザー一覧', users_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">

@@ -1,6 +1,10 @@
 class LikesController < ApplicationController
   before_action :logged_in_user
 
+  def index
+    @likes = current_user.likes
+  end
+
   def create
     @post = Post.find(params[:post_id])
     @user = @post.user

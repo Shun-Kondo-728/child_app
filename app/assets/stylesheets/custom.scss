@@ -420,6 +420,17 @@ footer {
   .like-btn-like {
     color: grey;
   }
+  a.like, a.unlike {
+    text-decoration: none;
+  }
+  
+  .likes {
+    list-style: none;
+    li {
+      padding: 10px 0;
+      border-top: 1px solid #e8e8e8;
+    }
+  }
 
 @media screen and (min-width: 768px) {
   .help {
