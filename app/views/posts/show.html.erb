@@ -1,5 +1,5 @@
 <% provide(:title, "#{@post.title}") %>
-
+<% @comments  = @post.feed_comment(@post.id) %>
 <div class="container">
   <div class="post-show">
     <h2 class="posts-title"><%= @post.title %></h2>
@@ -22,6 +22,7 @@
       </span>
       <%= render 'users/like_form' %>
       <div class="comment">
+        <%= render "comments/feed_comments" %>
         <%= render "comments/new" %>
       </div>
     </div>

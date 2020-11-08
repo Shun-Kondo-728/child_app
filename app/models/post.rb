@@ -15,6 +15,10 @@ class Post < ApplicationRecord
             }
   validate  :picture_size
 
+  def feed_comment(post_id)
+    Comment.where("post_id = ?", post_id)
+  end
+
   private
 
     def picture_size
