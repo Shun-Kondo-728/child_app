@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get :likes, to: 'likes#index'
   post   "likes/:post_id/create"  => "likes#create"
   delete "likes/:post_id/destroy" => "likes#destroy"
+  resources :comments, only: [:create, :destroy]
 end
