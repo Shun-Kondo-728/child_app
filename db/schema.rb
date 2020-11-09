@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_06_231109) do
+ActiveRecord::Schema.define(version: 2020_11_09_072128) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "post_id"
@@ -28,6 +28,27 @@ ActiveRecord::Schema.define(version: 2020_11_06_231109) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "post_id"], name: "index_likes_on_user_id_and_post_id", unique: true
+  end
+
+  create_table "memberships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "talk_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talk_id"], name: "index_memberships_on_talk_id"
+    t.index ["user_id", "talk_id"], name: "index_memberships_on_user_id_and_talk_id", unique: true
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
+  create_table "messages", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "talk_id"
+    t.bigint "user_id"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["talk_id"], name: "index_messages_on_talk_id"
+    t.index ["updated_at", "talk_id"], name: "index_messages_on_updated_at_and_talk_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -52,6 +73,12 @@ ActiveRecord::Schema.define(version: 2020_11_06_231109) do
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
   end
 
+  create_table "talks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["updated_at"], name: "index_talks_on_updated_at"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -64,5 +91,9 @@ ActiveRecord::Schema.define(version: 2020_11_06_231109) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "memberships", "talks"
+  add_foreign_key "memberships", "users"
+  add_foreign_key "messages", "talks"
+  add_foreign_key "messages", "users"
   add_foreign_key "posts", "users"
 end
