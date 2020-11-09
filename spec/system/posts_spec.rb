@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, :picture, user: user) }
+  let!(:comment) { create(:comment, user_id: user.id, post: new_post) }
 
   describe "post page" do
     before do
@@ -126,6 +128,33 @@ RSpec.describe "Posts", type: :system do
           page.driver.browser.switch_to.alert.accept
           expect(page).to have_content '投稿が削除されました'
         end
+    end
+
+    context "register & delete comments" do
+      it "successful registration & deletion of comments for your post" do
+        login_for_system(user)
+        visit post_path(new_post)
+        fill_in "comment_content", with: "このおもちゃは革命的"
+        click_button "コメント"
+        within find("#comment-#{Comment.last.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', text: 'このおもちゃは革命的'
+        end
+        expect(page).to have_content "コメントを追加しました！"
+        click_link "削除", href: comment_path(Comment.last)
+        expect(page).not_to have_selector 'span', text: 'このおもちゃは革命的'
+        expect(page).to have_content "コメントを削除しました"
+      end
+
+      it "there is no delete link in the comment of another user's post" do
+        login_for_system(other_user)
+        visit post_path(new_post)
+        within find("#comment-#{comment.id}") do
+          expect(page).to have_selector 'span', text: user.name
+          expect(page).to have_selector 'span', text: comment.content
+          expect(page).not_to have_link '削除', href: post_path(new_post)
+        end
+      end
     end
   end
 end
