@@ -17,4 +17,11 @@ Rails.application.routes.draw do
   post   "likes/:post_id/create"  => "likes#create"
   delete "likes/:post_id/destroy" => "likes#destroy"
   resources :comments, only: [:create, :destroy]
+  resources :talks,               only: [:show, :create] do
+    member do
+      post  :memberships, :messages
+    end
+  end
+  resources :memberships,         only: :destroy
+  resources :messages,            only: :destroy
 end
