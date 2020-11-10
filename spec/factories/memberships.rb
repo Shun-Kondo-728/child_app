@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :membership do
-    talk nil
-    user nil
+    association :talk
+    association :user
   end
 end
