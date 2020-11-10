@@ -5,6 +5,8 @@ RSpec.describe "Delete user", type: :request do
   let!(:user) { create(:user) }
   let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, user: user) }
+  let!(:message) { create(:message, user: user) }
+  let!(:membership) { create(:membership, user: user) }
 
   context "When the user associated with the dish is deleted" do
     it "Dishes associated with the user are also deleted" do
@@ -53,6 +55,24 @@ RSpec.describe "Delete user", type: :request do
       }.not_to change(User, :count)
       expect(response).to have_http_status "302"
       expect(response).to redirect_to login_path
+    end
+  end
+
+  context "メッセージが紐づくユーザーを削除した場合" do
+    it "ユーザーと同時に紐づくメッセージも削除される" do
+      login_for_request(user)
+      expect {
+        delete user_path(user)
+      }.to change(Message, :count).by(-1)
+    end
+  end
+
+  context "メンバーシップが紐づくユーザーを削除した場合" do
+    it "ユーザーと同時に紐づくメンバーシップも削除される" do
+      login_for_request(user)
+      expect {
+        delete user_path(user)
+      }.to change(Membership, :count).by(-1)
     end
   end
 end
