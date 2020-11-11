@@ -58,8 +58,8 @@ RSpec.describe "Delete user", type: :request do
     end
   end
 
-  context "メッセージが紐づくユーザーを削除した場合" do
-    it "ユーザーと同時に紐づくメッセージも削除される" do
+  context "when the user associated with the message is deleted" do
+    it "messages associated with the user are also deleted" do
       login_for_request(user)
       expect {
         delete user_path(user)
@@ -67,8 +67,8 @@ RSpec.describe "Delete user", type: :request do
     end
   end
 
-  context "メンバーシップが紐づくユーザーを削除した場合" do
-    it "ユーザーと同時に紐づくメンバーシップも削除される" do
+  context "when the user associated with the membership is deleted" do
+    it "membership associated with the user is also deleted" do
       login_for_request(user)
       expect {
         delete user_path(user)
