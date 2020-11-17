@@ -54,7 +54,6 @@ class PostsController < ApplicationController
     end
 
     def correct_user
-        # 現在のユーザーが更新対象の料理を保有しているかどうか確認
         @post = current_user.posts.find_by(id: params[:id])
         redirect_to root_url if @post.nil?
     end

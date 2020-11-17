@@ -1,0 +1,15 @@
+<div class="dm-title">
+  <h1 class="massage-title">メッセージ</h1>
+    <ul class="messages">
+    <%= render @messages %>
+    </ul>
+    
+    <%= form_for @message, url: messages_talk_path(@talk),
+                        html: { class: 'message-form'} do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="field">
+        <%= f.text_area :content, class: "content" %>
+    </div>
+    <%= f.submit "送信", class: "btn btn-primary" %>
+    <% end %>
+</div>

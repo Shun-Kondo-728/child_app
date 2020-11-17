@@ -23,5 +23,5 @@ Rails.application.routes.draw do
     end
   end
   resources :memberships,         only: [:create, :destroy]
-  resources :messages,            only: :destroy
+  resources :messages,            only: [:create, :destroy]
 end

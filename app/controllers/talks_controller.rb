@@ -2,17 +2,22 @@ class TalksController < ApplicationController
   before_action :logged_in_user
   before_action :correct_member, only: [:show, :messages]
 
-  def show
-    @messages = @talk.messages
-    @message = Message.new
+  def create
+    @talk = Talk.create
+    @membership1 = Membership.create(:talk_id => @talk.id, :user_id => current_user.id)
+    @membership2 = Membership.create(params.require(:membership).permit(:user_id, :talk_id).merge(:talk_id => @talk.id))
+    redirect_to "/talks/#{@talk.id}"
   end
 
-  def create
-    @talk = Talk.new
-    @talk.memberships.build(user_id: current_user.id)
-    @talk.memberships.build(user_id: params[:member_id])
-    @talk.save
-    redirect_to @talk
+  def show
+    @talk = Talk.find(params[:id])
+    if Membership.where(:user_id => current_user.id, :talk_id => @talk.id).present?
+      @messages = @talk.messages
+      @message = Message.new
+      @memberships = @talk.memberships
+    else
+      redirect_back(fallback_location: root_path)
+    end
   end
 
   def messages

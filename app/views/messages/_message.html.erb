@@ -1,0 +1,20 @@
+<li id="message-<%= message.id %>">
+  <% user = message.user %>
+  <% class_suffix = current_user?(user) ? 'right' : 'left' %>
+  <%= link_to gravatar_for(user, size: 50), user %>
+  <div class="balloon balloon-<%= class_suffix %>">
+    <% unless current_user?(user) %>
+      <span class="user"><%= link_to user.name, user %></span>
+    <% end %>
+    <span class="content"><%= message.content %></span>
+    <span class="timestamp">
+      <%= time_ago_in_words(message.created_at) %>前
+      <% if current_user?(user) %>
+        <%= link_to "削除", message_path(message),
+                              class: "delete",
+                              method: :delete,
+                              data: { confirm: "本当に削除してもいいですか？" } %>
+      <% end %>
+    </span>
+  </div>
+</li>

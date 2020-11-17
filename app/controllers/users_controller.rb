@@ -10,6 +10,24 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts.page(params[:page]).per(10)
+    @currentUserMembership = Membership.where(user_id: current_user.id)
+    @userMembership = Membership.where(user_id: @user.id)
+    if @user.id == current_user.id
+    else
+      @currentUserMembership.each do |cu|
+        @userMembership.each do |u|
+          if cu.talk_id == u.talk_id
+            @isTalk = true
+            @talkId = cu.talk_id
+          end
+        end
+      end
+      if @isTalk
+      else
+        @talk = Talk.new
+        @membership = Membership.new
+      end
+    end
   end
 
   def index
