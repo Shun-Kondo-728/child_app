@@ -454,6 +454,145 @@ footer {
     color: grey;
   }
 
+  /* tabs */
+.nav-tabs a {
+    font-size: 21px;
+  }
+  
+  /* talks */
+  
+  .talks {
+    list-style: none;
+    padding: 0;
+    a:hover {
+      text-decoration: none;
+    }
+    li {
+      padding: 10px 0;
+      border-top: 1px solid #e8e8e8;
+    }
+    .title {
+      color: black;
+      margin-top: 5em;
+      padding-top: 0;
+    }
+    .content {
+      color: black;
+      display: block;
+      margin-left: 60px;
+    }
+    .timestamp {
+      color: gray;
+      display: block;
+      margin-left: 60px;
+    }
+    .delete {
+      float: right;
+    }
+    .gravatar {
+      float: left;
+      margin-right: 10px;
+      margin-top: 5px;
+    }
+  }
+
+
+  /* messages */
+.messages {
+    list-style: none;
+    padding: 0;
+    li {
+      padding: 5px;
+    }
+    .balloon {
+      padding: 10px 15px;
+      border: solid 1px #bbbbbb;
+      margin: 0 70px;
+    }
+    .balloon-left {
+      border-radius: 0 20px 20px 20px / 0 20px 20px 20px;
+    }
+    .balloon-right {
+      border-radius: 20px 0 20px 20px / 20px 0 20px 20px;
+    }
+    .user {
+      margin-top: 5em;
+      padding-top: 0;
+    }
+    .content {
+      color: black;
+      display: block;
+      word-break: break-all;
+    }
+    .timestamp {
+      color: gray;
+      display: block;
+    }
+    .delete {
+      float: right;
+    }
+    .gravatar-left {
+      float: left;
+      margin-right: 10px;
+    }
+    .gravatar-right {
+      float: right;
+      margin-right: 0;
+    }
+  }
+  
+  /* message form */
+  
+  .message-form {
+    height: 80px;
+    margin: 10px 0;
+    padding: 10px 70px 0 70px;
+    border-top: 1px solid #bbbbbb;
+    &:after {
+      display: block;
+      content: "";
+      clear: both;
+    }
+    .field {
+      float: left;
+      width: 85%;
+    }
+    .content {
+      height: 70px;
+      margin-bottom: 0;
+    }
+    .btn {
+      float: left;
+      width: 15%;
+      height: 100% !important;
+    }
+  }
+  
+  #message_content {
+      width: 50%;
+      margin-left: 80px;
+  }
+  
+.massage-title {
+    margin-top: 120px;
+    text-align: center;
+}
+
+.btn-primary1 {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    margin-top: 20px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+  }
+
+  .massage-index {
+     margin-top: 120px;
+  }
+
 @media screen and (min-width: 768px) {
   .help {
     img {
@@ -470,8 +609,11 @@ footer {
       margin-top: 400px;
     }
   }
+  .btn-primary1 {
+    padding: 0.375rem 1rem;
+    margin-left: 20px;
+  }
 }
-
 
 @media screen and (min-width: 1024px) {
   #title {

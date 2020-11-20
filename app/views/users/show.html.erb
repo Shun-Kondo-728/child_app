@@ -25,7 +25,7 @@
     <% else %>
       <% if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
       <% if @isTalk == true %>
-        <p><a href="/talks/<%= @talkId %>" class="btn btn-primary btn-lg">チャットへ</a>
+        <p><a href="/talks/<%= @talkId %>" class="btn btn-primary1 btn-lg">チャットへ</a>
         <% else %>
         <%= form_for @talk do |f| %>
             <%= fields_for @membership do |e| %>
@@ -44,7 +44,7 @@
               <%= render @posts %>
             </ol>
               <%= paginate @posts %>
-            <% end %>
+          <% end %>
       </div>
     </div>
   </div>
