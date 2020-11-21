@@ -57,3 +57,9 @@ Metrics/LineLength:
 
 Layout/FirstArrayElementLineBreak:
   Enabled: false
+
+Naming/VariableName:
+  Enabled: false
+
+RSpec/EmptyExampleGroup:
+  Enabled: false
