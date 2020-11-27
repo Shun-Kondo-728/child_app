@@ -12,6 +12,8 @@ class User < ApplicationRecord
   has_many    :memberships, dependent: :destroy
   has_many    :talks, class_name: "Talk", through: :memberships
   has_many    :messages, dependent: :destroy
+  has_many :active_notifications, class_name: "Notification", foreign_key: "visiter_id", dependent: :destroy
+  has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
   before_save :downcase_email
   validates :name, presence: true, length: { maximum: 25 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
