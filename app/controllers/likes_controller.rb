@@ -9,6 +9,7 @@ class LikesController < ApplicationController
     @post = Post.find(params[:post_id])
     @user = @post.user
     current_user.like(@post)
+    post.create_notification_like!(current_user)
     respond_to do |format|
       format.html { redirect_to request.referrer || root_url }
       format.js
