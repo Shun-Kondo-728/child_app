@@ -9,6 +9,9 @@
         <ul id="subtitle" class="navbar-nav">
         <% if logged_in? %>
           <li><%= link_to '通知', notifications_path %></li>
+          <% if unchecked_notifications.any? %>
+            <i class="fa fa-circle notification-circle"></i>
+          <% end %>
           <li><%= link_to 'いいね', likes_path %></li>
           <li><%= link_to 'ユーザー一覧', users_path %></li>
           <li class="dropdown">

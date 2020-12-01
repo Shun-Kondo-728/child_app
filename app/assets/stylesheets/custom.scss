@@ -593,6 +593,13 @@ footer {
     padding-top: 120px;
   }
 
+  .notification-circle {
+     color: rgb(127, 255, 0);
+     position: absolute;
+     padding-left: 2.8rem;
+     padding-top: 0.5rem;
+  }
+
 @media screen and (min-width: 768px) {
   .help {
     img {
