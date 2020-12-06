@@ -210,5 +210,45 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content new_post.title
       end
     end
+
+    context "notification generation" do
+      before do
+        login_for_system(user)
+      end
+
+      context "for users other than yourself" do
+        before do
+          visit post_path(other_new_post)
+        end
+
+        it "notifications are created by like registration" do
+          find('.like').click
+          visit post_path(other_new_post)
+          logout
+          login_for_system(other_user)
+          visit notifications_path
+          expect(page).to have_content "#{user.name}があなたの投稿にいいねしました"
+        end
+
+        it "notifications are created by being followed" do
+          visit user_path(other_user)
+          click_button "フォローする"
+          logout
+          login_for_system(other_user)
+          visit notifications_path
+          expect(page).to have_content "#{user.name}があなたをフォローしました"
+        end
+
+        it "notifications are created by comments" do
+          fill_in "comment_content", with: "コメントしました"
+          click_button "コメント"
+          logout
+          login_for_system(other_user)
+          visit notifications_path
+          expect(page).to have_content "#{user.name}が#{other_new_post.title}にコメントしました"
+          expect(page).to have_content 'コメントしました'
+        end
+      end
+    end
   end
 end
