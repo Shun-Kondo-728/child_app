@@ -12,17 +12,11 @@ RSpec.describe "Messages", type: :request do
         login_for_request(user)
       end
 
-      #it "messages with valid content can be registered" do
-       # expect {
-        #  post "/messages_talk/#{message}/messages", params: { message: { content: "最高です！" } }
-        #}.to change(Message, :count).by(1)
-      #end
-
       it "messages with invalid content cannot be registered" do
         expect {
           post messages_talk_path(talk), params: { user_id: user.id,
-                                                      talk_id: talk.id,
-                                                      message: { content: "最高です！" } }
+                                                   talk_id: talk.id,
+                                                   message: { content: "最高です！" } }
         }.not_to change(Message, :count)
       end
     end
