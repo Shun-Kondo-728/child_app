@@ -119,7 +119,6 @@ RSpec.describe "Users", type: :system do
         Post.take(10).each do |post|
           expect(page).to have_link post.title
           expect(page).to have_content post.description
-          expect(page).to have_content post.recommended
         end
       end
 

@@ -32,7 +32,7 @@ RSpec.describe "Posts", type: :system do
         it "if you post with valid information, a flash of successful posting will be displayed" do
           fill_in "post[title]", with: "赤ちゃんが泣き止む曲"
           fill_in "説明", with: "この曲が、一番オススメです！"
-          fill_in "オススメ度", with: 4
+          find('#review_star', visible: false).set(5.0)
           attach_file "post[picture]", "#{Rails.root}/spec/fixtures/test_post.jpg"
           click_button "投稿する"
           expect(page).to have_content "投稿されました！"
@@ -41,7 +41,7 @@ RSpec.describe "Posts", type: :system do
         it "when posting with invalid information, a flash of posting failure is displayed" do
           fill_in "post[title]", with: ""
           fill_in "説明", with: ""
-          fill_in "オススメ度", with: 4
+          find('#review_star', visible: false).set(0)
           click_button "投稿する"
           expect(page).to have_content "タイトルを入力してください"
           expect(page).to have_content "説明を入力してください"
@@ -63,7 +63,7 @@ RSpec.describe "Posts", type: :system do
       it "post information is displayed" do
         expect(page).to have_content new_post.title
         expect(page).to have_content new_post.description
-        expect(page).to have_content new_post.recommended
+        find("#star-recommended-#{new_post.id}")
         expect(page).to have_link nil, href: post_path(new_post), class: 'post-picture'
       end
     end
