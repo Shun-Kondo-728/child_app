@@ -11,7 +11,6 @@ input {
 }
 footer {
   height: 70px;
-  margin-top: 45px;
   padding-top: 25px;
   border-top: 1px solid #eaeaea;
   color: #777;
@@ -180,7 +179,7 @@ footer {
 
 //sign_up
 .signup-block {
-  height: 1300px;
+  height: 750px;
   position: relative; 
   .signup-group {
     width: 700px;
@@ -278,6 +277,9 @@ footer {
     }
 }
 //paginate
+.pagination {
+    margin-bottom: 50px;
+}
 .pagination>li>a {          
     border: none;     /*枠線をなくす*/
     color: #696969;   /*文字の色を変える*/
@@ -328,6 +330,7 @@ footer {
 
   .post-title {
       padding-top: 120px;
+      font-weight: bold;
   }
   
   aside {
@@ -342,6 +345,10 @@ footer {
     input {
       border: 0;
     }
+  }
+
+  #page {
+      background-color: linen;
   }
 
   .delete-account {

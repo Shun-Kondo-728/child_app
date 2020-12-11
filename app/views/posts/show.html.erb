@@ -14,7 +14,16 @@
     </div>
     <h4 class="post-description"><%= @post.description %></h4>
     <div class="post-info">
-      <h5>人気度：<%= @post.recommended %></h5>
+      <div id="star-recommended-<%= @post.id %>"></div>
+          <script>
+          $('#star-recommended-<%= @post.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            score: <%= @post.recommended %>,
+          });
+          </script>  
     </div>
     <div class="col-md-4">
       <span class="picture">

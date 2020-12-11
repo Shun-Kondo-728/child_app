@@ -7,7 +7,17 @@
   <span>
     <%= link_to((image_tag post.picture.thumb200.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
   </span><br>
-  <span class="recommended">人気度：<%= post.recommended %></span><br>
+  <span class="recommended">おすすめ度：<div id="star-recommended-<%= @post.id %>"></div>
+          <script>
+          $('#star-recommended-<%= @post.id %>').raty({
+            size: 36,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            readOnly: true,
+            score: <%= @post.recommended %>,
+          });
+          </script>  
+  </span><br>
   <%= render 'users/like_form' %><br>
   <span class="timestamp">
     <%= time_ago_in_words(post.created_at) %>前に投稿
