@@ -1,7 +1,7 @@
 <% if logged_in? %>
   <div class="container">
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-8">
         <h3 class="post-title">ユーザーの投稿 (<%= @feed_items.count %>)</h3>
         <%= render 'shared/feed' %>
       </div>
