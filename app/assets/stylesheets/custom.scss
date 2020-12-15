@@ -294,18 +294,42 @@ img.gravatar.user-picture {
 .guide {
     text-align: center;
 }
+
 //indexpage
 .index-summary {
     padding-top: 100px;
+    .pagination {
+        margin-left: 80px;
+    }
 }
 .users {
     list-style: none;
-    margin: 0;
+    margin: 0 40px;
     li {
       overflow: auto;
       padding: 10px 0;
-      border-bottom: 1px solid gray;
+      border-bottom: 2px solid gainsboro;
     }
+
+}
+
+.line-style {
+    padding: 0 20px;
+}
+
+.delete-text {
+    font-size: 17px;
+}
+
+.users-title {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.user-name {
+    font-size: 21px;
+    padding-left: 10px;
 }
 //paginate
 .pagination>li>a {          
@@ -789,4 +813,12 @@ img.gravatar.user-picture {
       background: rgb(127, 255, 0); //ボタンの背景色
     }
   }
+  .index-summary {
+      .pagination {
+          margin-left: 190px;
+      }
+  }
+  .users {
+    margin: 0 150px;
+}
 }
