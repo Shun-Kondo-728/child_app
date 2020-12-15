@@ -2,13 +2,13 @@
 <% user = @post.user %>
 <li id="like-<%= like.id %>">
   <div class="row like-post">
-    <div class="col-md-2">
-      <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post), class: 'post-picture') if @post.picture.url.present? %>
-    </div>
     <div class="col-md-7">
-      <p><%= link_to @post.title, post_path(@post) %></p>
-      <p><%= @post.description %></p>
-      <p class="likes-user">posted by <%= link_to user.name, user_path(user) %></p>
+      <p class="post-like-title"><%= link_to @post.title, post_path(@post) %></p>
+      <p class="post-like-description"><%= @post.description %></p>
+      <div class="col-md-6">
+        <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post), class: 'post-like-picture') if @post.picture.url.present? %>
+      </div>
+      <p class="likes-user">投稿ユーザー： <%= link_to user.name, user_path(user) %></p>
     </div>
   </div>
 </li>

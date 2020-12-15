@@ -519,11 +519,40 @@ img.gravatar.user-picture {
   
   .likes {
     list-style: none;
+    margin-top: 100px;
     li {
       padding: 10px 0;
       border-top: 1px solid #e8e8e8;
     }
   }
+  .likes-user {
+    color: gray;
+    a {
+        font-size: 17px;
+        color: gray;
+    }
+}
+
+.post-like-title a {
+    font-weight: bold;
+}
+
+  .post-like-description {
+    display: block;
+    word-break: break-all;
+    padding-left: 20px;
+}
+
+.post-like-picture img {
+    max-width: 80%;
+    height: auto;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+ol {
+    margin-bottom: 0;
+}
 
   //comment
   .title-comment {
@@ -753,6 +782,7 @@ img.gravatar.user-picture {
     margin-top: 30px;
     padding-bottom: 30px;
 }
+
 
 @media screen and (min-width: 1024px) {
   #title {
