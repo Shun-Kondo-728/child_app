@@ -242,8 +242,13 @@ footer {
   margin-left: 120px;
 }
 
-.profile-title {
-  padding-top: 100px;
+a.profile-title {
+  font-size: 18px;
+  color: gray;
+}
+
+img.gravatar.user-picture {
+    padding-top: 100px;
 }
 
 .user-picture img {
@@ -259,10 +264,30 @@ footer {
   
 .show-user-name {
     display: inline-block;
+    padding-top: 30px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.profile-post-title {
+    font-weight: bold;
+    padding-bottom: 10px;
 }
   
+.profile-comment {
+    padding: 10px 20px 10px 20px;
+    display: block;
+    word-break: break-all;
+}
+
 #user-edit {
-    margin-top: 20px;
+    margin: 20px 0px 40px 18px;
+}
+
+.follow-color {
+    font-size: 18px;
+    color: gray;
 }
 
 //loginpage
@@ -312,7 +337,7 @@ footer {
     padding: 0;
     li {
       padding: 10px 0;
-      border-top: 1px solid #e8e8e8;
+      border-top: 2px solid gainsboro;
    }
     .user {
       margin-top: 5em;
@@ -342,7 +367,7 @@ footer {
 
   .post-title {
       padding-top: 120px;
-      padding-bottom: 20px;
+      padding-bottom: 10px;
       font-weight: bold;
   }
   
@@ -442,10 +467,12 @@ footer {
     max-width: 100%;
     height: auto;
     box-sizing: border-box;
+    margin-bottom: 30px;
+    margin-left: 60px;
   }
   //follow
   .stats {
-    margin: 5px 0;
+    margin: 5px 10px 0 10px;
   }
   .user_info {
       margin-top: 80px;
@@ -630,9 +657,10 @@ footer {
   }
 
   .btn-record {
-    margin-top: 5em;
+    margin-top: 0.5em;
     background-color: darkcyan;
     border-color: darkcyan;
+    margin-left: 350px;
 }
 
   .sub-title {
@@ -662,19 +690,44 @@ footer {
       margin-top: 400px;
     }
   }
+
+  .btn-record {
+    margin-top: 8em;
+    background-color: darkcyan;
+    border-color: darkcyan;
+    margin-left: 0px;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    padding: 1rem 2rem;
+    font-size: 1.75rem;
+    line-height: 1.5;
+    border-radius: 0.3rem;
+}
+
   .btn-primary1 {
     padding: 0.375rem 1rem;
     margin-left: 20px;
   }
 
-  .col-md-8 {
-    margin-left: 80px;
+  .user-profile {
+    margin-top: 140px;
+}
+}
+
+.col-md-8 {
+    margin-left: 60px;
+}
+
+.col-md-9 {
+    flex: 0 0 75%;
+    margin-left: 100px;
+    max-width: 75%;
 }
 
 .pagination {
     margin-top: 30px;
     padding-bottom: 30px;
-}
 }
 
 @media screen and (min-width: 1024px) {

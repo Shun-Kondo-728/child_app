@@ -2,21 +2,19 @@
 <div class="container">
   <div class="profile-title">
     <div class="row">
-        <div class="col-md-4">
         <div class="user-picture-box">
-            <%= gravatar_for @user, size: 120, cl: "gravatar user-picture" %>
+            <%= gravatar_for @user, size: 80, cl: "gravatar user-picture" %>
         </div>
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-8 user-profile">
         <h4 class="show-user-name"><%= @user.name %></h4>
-        <div>
+        <div class="profile-comment">
             <%= @user.introduction %>
         </div>
         <section class="stats">
           <%= render 'shared/stats' %>
         </section>
         <% if current_user == @user %>
-            <div id="user-edit"><%= link_to "プロフィール編集", edit_user_path(@user) %></div>
+            <div id="user-edit"><%= link_to "プロフィール編集", edit_user_path(@user), class: "profile-title" %></div>
         <% end %>
         <%= render 'follow_form' if logged_in? %>
         </div>
@@ -39,7 +37,7 @@
     <div class="row">
       <div class="col-md-9">
           <% if @user.posts.any? %>
-            <h3>投稿 (<%= @user.posts.count %>)</h3>
+            <h3 class="profile-post-title">投稿 (<%= @user.posts.count %>)</h3>
             <ol class="posts">
               <%= render @posts %>
             </ol>
