@@ -298,6 +298,7 @@ img.gravatar.user-picture {
 //indexpage
 .index-summary {
     padding-top: 100px;
+    padding-bottom: 10px;
     .pagination {
         margin-left: 80px;
     }
@@ -715,10 +716,33 @@ ol {
     border-color: darkcyan;
     margin-left: 350px;
 }
+//notification
+.users-index {
+    margin: 0 70px;
+    padding-bottom: 10px;
+}
+
+.moderate-font {
+    font-size: 15px;
+    color: gray;
+}
 
   .sub-title {
     padding-top: 120px;
+    padding-bottom: 25px;
+    font-size: 35px;
+    font-weight: bold;
+    text-align: center;
   }
+
+  .notification-view {
+    margin-bottom: 10px;
+    border-bottom: 2px solid gainsboro;
+    a {
+      color: black;
+      font-size: 25px;
+    }
+}
 
   .notification-circle {
      color: rgb(127, 255, 0);
@@ -726,6 +750,11 @@ ol {
      padding-left: 2.8rem;
      padding-top: 0.5rem;
   }
+
+  .notification-comment {
+    display: block;
+    word-break: break-all;
+}
 
 @media screen and (min-width: 768px) {
   .help {
@@ -782,7 +811,6 @@ ol {
     margin-top: 30px;
     padding-bottom: 30px;
 }
-
 
 @media screen and (min-width: 1024px) {
   #title {
@@ -850,5 +878,10 @@ ol {
   }
   .users {
     margin: 0 150px;
+}
+
+.users-index {
+    margin: 0 200px;
+    padding-bottom: 10px;
 }
 }
