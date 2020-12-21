@@ -23,13 +23,13 @@
     <% else %>
       <% if (current_user.followed_by? @user) && (@user.followed_by? current_user)  %>
       <% if @isTalk == true %>
-        <p><a href="/talks/<%= @talkId %>" class="btn btn-primary1 btn-lg">チャットへ</a>
+        <p><a href="/talks/<%= @talkId %>" class="btn btn-primary1 btn-lg btn-go-chat">チャットへ</a>
         <% else %>
         <%= form_for @talk do |f| %>
             <%= fields_for @membership do |e| %>
             <%= e.hidden_field :user_id, :value=> @user.id %>
             <% end %>
-            <%= f.submit "チャットを始める" %>
+            <%= f.submit "チャットを始める", class:"btn-chat" %>
         <% end %>
       <% end %>
       <% end %>

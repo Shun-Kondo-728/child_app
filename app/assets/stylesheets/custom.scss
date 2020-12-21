@@ -254,6 +254,12 @@ body {
 //profilepage
 .gravatar_edit {
   margin-left: 120px;
+  a {
+    padding-left: 20px;
+    padding-bottom: 10px;
+    color: gray;
+    font-size: 16px;
+}
 }
 
 a.profile-title {
@@ -282,6 +288,10 @@ img.gravatar.user-picture {
     padding-left: 20px;
     font-weight: bold;
     font-size: 30px;
+}
+
+.profile-title {
+    margin-top: 60px;
 }
 
 .profile-post-title {
@@ -339,6 +349,7 @@ img.gravatar.user-picture {
 .users-title {
     font-weight: bold;
     text-align: center;
+    padding-top: 70px;
     padding-bottom: 20px;
 }
 
@@ -405,7 +416,7 @@ img.gravatar.user-picture {
   }
 
   .post-title {
-      padding-top: 120px;
+      padding-top: 200px;
       padding-bottom: 10px;
       font-weight: bold;
   }
@@ -511,15 +522,39 @@ img.gravatar.user-picture {
   }
   //follow
   .stats {
-    margin: 5px 10px 0 10px;
+    margin: 5px 50px 0 50px;
+    width: 100%;
   }
   .user_info {
       margin-top: 80px;
+      margin-left: 50px;
+      h1 {
+          padding-top: 15px;
+      }
+      img {
+          padding-top: 90px;
+      }
+      span {
+          a {
+            padding-right: 15px;
+            padding-top: 15px;
+            font-size: 20px; 
+            color: gray;
+          }
+      }
   }
 
-  .follow {
-     margin-top: 80px;
-  }
+  .profile-follow-title {
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 70px;
+    padding-bottom: 25px;
+    text-align: center;
+}
+
+  .btn-follow {
+    margin: 20px;
+}
 
   //like
   .like-btn-unlike {
@@ -534,7 +569,7 @@ img.gravatar.user-picture {
   
   .likes {
     list-style: none;
-    margin-top: 100px;
+    margin-top: 150px;
     li {
       padding: 10px 0;
       border-top: 1px solid #e8e8e8;
@@ -633,6 +668,13 @@ ol {
     }
   }
 
+  .btn-chat {
+    margin-left: 180px;
+    margin-bottom: 30px;
+    border-color: palegoldenrod;
+    background-color: palegoldenrod;
+}
+
 
   /* messages */
 .messages {
@@ -684,7 +726,6 @@ ol {
     height: 80px;
     margin: 10px 0;
     padding: 10px 70px 0 70px;
-    border-top: 1px solid #bbbbbb;
     &:after {
       display: block;
       content: "";
@@ -706,13 +747,19 @@ ol {
   }
   
   #message_content {
-      width: 50%;
-      margin-left: 80px;
+      width: 80%;
+      margin-left: 40px;
   }
   
 .massage-title {
-    margin-top: 120px;
+    padding-top: 200px;
+    padding-bottom: 20px;
+    font-weight: bold;
     text-align: center;
+}
+
+.dm-title {
+    padding-bottom: 30px;
 }
 
 .btn-primary1 {
@@ -742,7 +789,7 @@ ol {
 }
 
   .sub-title {
-    padding-top: 120px;
+    padding-top: 200px;
     padding-bottom: 25px;
     font-size: 35px;
     font-weight: bold;
@@ -752,9 +799,10 @@ ol {
   .notification-view {
     margin-bottom: 10px;
     border-bottom: 2px solid gainsboro;
+    padding: 20px 0;
     a {
       color: black;
-      font-size: 25px;
+      font-size: 35px;
     }
 }
 
@@ -864,7 +912,7 @@ ol {
 #title {
     font-size: 30px;
 }
-        //sign_up
+//sign_up
 .signup-block {
     height: 850px;
     position: relative; 
@@ -875,7 +923,7 @@ ol {
     }
     .sign-title {
       font-size: 30px;
-      padding-top: 20px;
+      padding-top: 60px;
       padding-bottom: 10px;
     }
     .form-control {
@@ -963,8 +1011,45 @@ ol {
     margin: 0 150px;
 }
 
+.users-title {
+    padding-top: 10px;
+}
+
 .users-index {
     margin: 0 200px;
     padding-bottom: 10px;
+}
+
+.profile-title {
+    margin-top: 0;
+}
+
+.post-title {
+    padding-top: 120px;
+}
+
+.likes {
+    margin-top: 100px;
+}
+
+.sub-title {
+    padding-top: 120px;
+  }
+
+  .notification-view {
+    padding: 10px 0;
+       a {
+          font-size: 25px;
+       }
+}
+
+.massage-title {
+    padding-top: 120px;
+}
+
+.user_info {
+    img {
+        padding-top: 40px;
+    }
 }
 }
