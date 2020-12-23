@@ -13,6 +13,9 @@
       <% end %>
     </div>
     <h4 class="post-description"><%= @post.description %></h4>
+    <span class="picture">
+        <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
+      </span>
     <div class="post-info">
       <div id="star-recommended-<%= @post.id %>"></div>
           <script>
@@ -25,11 +28,8 @@
           });
           </script>  
     </div>
-    <div class="col-md-4">
-      <span class="picture">
-        <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
-      </span>
-      <%= render 'users/like_form' %>
+    <%= render 'users/like_form' %>
+    <div class="col-md-7">
       <div class="comment">
         <%= render "comments/feed_comments" %>
         <%= render "comments/new" %>

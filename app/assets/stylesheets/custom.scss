@@ -188,6 +188,8 @@ body {
     padding: 20px 40px;
     font-size: 20px;
     background: rgb(127, 255, 0); //ボタンの背景色
+    border-color: chartreuse;
+    margin-bottom: 50px;
   }
 }
 
@@ -262,11 +264,6 @@ body {
 }
 }
 
-a.profile-title {
-  font-size: 18px;
-  color: gray;
-}
-
 img.gravatar.user-picture {
     padding-top: 100px;
 }
@@ -279,19 +276,29 @@ img.gravatar.user-picture {
   
 .user-picture-box {
     margin-top: 0.5em;
-    margin-left: 1em;
+    margin-left: 2em;
+}
+
+.delete-account a {
+    font-size: 15px;
 }
   
 .show-user-name {
     display: inline-block;
     padding-top: 30px;
-    padding-left: 20px;
+    padding-left: 40px;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .profile-title {
     margin-top: 60px;
+}
+
+a.profile-title {
+    padding-left: 35px;
+    font-size: 18px;
+    color: gray;
 }
 
 .profile-post-title {
@@ -300,7 +307,7 @@ img.gravatar.user-picture {
 }
   
 .profile-comment {
-    padding: 10px 20px 10px 20px;
+    padding: 10px 40px 10px 40px;
     display: block;
     word-break: break-all;
 }
@@ -310,8 +317,12 @@ img.gravatar.user-picture {
 }
 
 .follow-color {
-    font-size: 18px;
+    font-size: 20px;
     color: gray;
+}
+.stats-second {
+    margin-top: 5px;
+    width: 100%;
 }
 
 //loginpage
@@ -351,10 +362,11 @@ img.gravatar.user-picture {
     text-align: center;
     padding-top: 70px;
     padding-bottom: 20px;
+    font-size: 50px;
 }
 
 .user-name {
-    font-size: 21px;
+    font-size: 30px;
     padding-left: 10px;
 }
 //paginate
@@ -396,8 +408,9 @@ img.gravatar.user-picture {
     .description {
       display: block;
       word-break: break-all;
-      margin-left: 60px;
+      margin-left: 65px;
       padding-top: 10px;
+      font-size: 36px;
       img {
         display: block;
         padding: 5px 0;
@@ -407,6 +420,7 @@ img.gravatar.user-picture {
       color: gray;
       display: block;
       margin-left: 60px;
+      font-size: 30px;
     }
     .gravatar {
       float: left;
@@ -419,7 +433,15 @@ img.gravatar.user-picture {
       padding-top: 200px;
       padding-bottom: 10px;
       font-weight: bold;
+      font-size: 50px;
   }
+
+  .title a {
+    color: black;
+    font-size: 40px;
+    display: block;
+    word-break: break-all;
+}
   
   a {
       color: black;
@@ -455,6 +477,7 @@ img.gravatar.user-picture {
 
   .fa-heart {
     margin-left: 30px;
+    font-size: 40px;
 }
 
   .delete-size {
@@ -475,6 +498,7 @@ img.gravatar.user-picture {
 
   .change-post {
     display: inline-block;
+    margin-left: 100px;
   }
   
   .edit-post .delete-post {
@@ -503,23 +527,43 @@ img.gravatar.user-picture {
   //postshowpage
   .post-show {
       display: block;
-      margin-top: 100px;
-      .posts-title,.post-description {
-        padding-bottom: 30px;
+      margin-top: 80px;
+      margin-left: 100px;
+      .posts-title {
+        padding-top: 100px;
+        font-size: 50px;
+        font-weight: bold;
+      }
+      .post-description {
+          padding-bottom: 30px;
+          font-size: 40px;
       }
       h5 {
           font-size: 15px;
       }
   }
-  //image
 
+  .edit-post {
+    font-size: 20px;
+    color: gray;
+}
+
+.delete-post {
+    font-size: 20px;
+    padding-left: 15px;
+    color: gray;
+}
   .post-picture img {
-    max-width: 100%;
+    max-width: 60%;
     height: auto;
     box-sizing: border-box;
     margin-bottom: 30px;
-    margin-left: 60px;
+    margin-left: 40px;
   }
+
+  .post-info {
+    margin-bottom: 30px;
+}
   //follow
   .stats {
     margin: 5px 50px 0 50px;
@@ -553,9 +597,27 @@ img.gravatar.user-picture {
 }
 
   .btn-follow {
-    margin: 20px;
+    margin: 40px 40px 0 40px;
+    padding: 20px 40px;
+    font-size: 30px;
 }
 
+strong#following {
+    font-size: 35px;
+}
+
+strong#followers {
+    font-size: 35px;
+}
+
+.btn-go-chat {
+    margin-left: 155px;
+    margin-bottom: 30px;
+    border-color: palegoldenrod;
+    background-color: palegoldenrod;
+    font-size: 30px;
+    color: black;
+}
   //like
   .like-btn-unlike {
     color: red;
@@ -577,20 +639,30 @@ img.gravatar.user-picture {
   }
   .likes-user {
     color: gray;
+    font-size: 25px;
     a {
-        font-size: 17px;
+        font-size: 25px;
         color: gray;
     }
 }
 
-.post-like-title a {
-    font-weight: bold;
+.post-like-title {
+    width: 700px;
+    a {
+        font-weight: bold;
+        font-size: 35px;
+        padding: 20px 0 0 0;
+        border-top: 1px solid black;
+        display: block;
+        word-break: break-all;
+    }
 }
 
   .post-like-description {
     display: block;
     word-break: break-all;
-    padding-left: 20px;
+    padding: 10px 20px;
+    font-size: 30px;
 }
 
 .post-like-picture img {
@@ -604,11 +676,20 @@ ol {
     margin-bottom: 0;
 }
 
+.fa-heart {
+    padding-bottom: 30px;
+}
+
   //comment
   .title-comment {
+    padding-top: 50px;
     font-weight: bold;
-    font-size: 17px;
+    font-size: 30px;
   }
+
+  #comment_content {
+    width: 100%;
+}
   
   .comments {
     list-style: none;
@@ -617,14 +698,32 @@ ol {
       padding: 10px 0;
       border-top: 1px solid #e8e8e8;
       .comment {
-        font-size: 16px;
+        display: block;
+        word-break: break-all;
+        font-size: 25px;
+        width: 100%;
+        padding-left: 40px;
       }
     }
   }
   
+  .user a {
+    color: steelblue;
+    font-size: 25px;
+}
   .comment-create-at {
+    font-size: 17px;
     color: grey;
   }
+
+  .btn-comment {
+    margin: 20px 0 70px 0;
+    padding: 10px 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: darkcyan;
+    border-color: darkcyan;
+}
 
   /* tabs */
 .nav-tabs a {
@@ -669,12 +768,15 @@ ol {
   }
 
   .btn-chat {
-    margin-left: 180px;
+    margin-left: 130px;
+    padding: 20px 40px;
+    font-size: 30px;
+    margin-top: 20px;
     margin-bottom: 30px;
     border-color: palegoldenrod;
     background-color: palegoldenrod;
+    border-style: none;
 }
-
 
   /* messages */
 .messages {
@@ -763,19 +865,18 @@ ol {
 }
 
 .btn-primary1 {
-    color: #fff;
+    //color: #fff;
     margin-top: 20px;
     padding: 0.375rem 0.75rem;
-    font-size: 1rem;
     line-height: 1.5;
     border-radius: 0.25rem;
   }
 
   .btn-record {
-    margin-top: 0.5em;
+    margin-top: 15em;
     background-color: darkcyan;
     border-color: darkcyan;
-    margin-left: 350px;
+    //margin-left: 350px;
 }
 //notification
 .users-index {
@@ -784,14 +885,14 @@ ol {
 }
 
 .moderate-font {
-    font-size: 15px;
+    font-size: 25px;
     color: gray;
 }
 
   .sub-title {
     padding-top: 200px;
     padding-bottom: 25px;
-    font-size: 35px;
+    font-size: 50px;
     font-weight: bold;
     text-align: center;
   }
@@ -800,9 +901,10 @@ ol {
     margin-bottom: 10px;
     border-bottom: 2px solid gainsboro;
     padding: 20px 0;
+    font-size: 30px;
     a {
       color: black;
-      font-size: 35px;
+      font-size: 45px;
     }
 }
 
@@ -816,6 +918,7 @@ ol {
   .notification-comment {
     display: block;
     word-break: break-all;
+    font-size: 35px;
 }
 
 @media screen and (min-width: 768px) {
@@ -865,37 +968,24 @@ ol {
     }
   }
 
-  .btn-record {
-    margin-top: 8em;
-    background-color: darkcyan;
-    border-color: darkcyan;
-    margin-left: 0px;
-}
-
 .btn-lg, .btn-group-lg > .btn {
     padding: 1rem 2rem;
-    font-size: 1.75rem;
     line-height: 1.5;
     border-radius: 0.3rem;
 }
-
-  .btn-primary1 {
-    padding: 0.375rem 1rem;
-    margin-left: 20px;
-  }
 
   .user-profile {
     margin-top: 140px;
 }
 }
 
-.col-md-8 {
+.follow-index {
     margin-left: 60px;
 }
 
 .col-md-9 {
     flex: 0 0 75%;
-    margin-left: 100px;
+    //margin-left: 100px;
     max-width: 75%;
 }
 
@@ -982,6 +1072,29 @@ ol {
     }
   }
 
+  .user-name {
+    font-size: 21px;
+}
+
+  .btn-record {
+    margin-top: 10em;
+    background-color: darkcyan;
+    border-color: darkcyan;
+    margin-left: 0px;
+}
+.posts {
+    .description {
+        margin-left: 60px;
+        font-size: 25px;
+    }
+    .timestamp {
+        font-size: 20px;
+    }
+}
+.title a {
+    font-size: 25px;
+}
+
   .feature-item {
     flex: 0 0 33.3333%;
     max-width: 33.3333%; /* IE11バグ対応 */
@@ -1012,6 +1125,7 @@ ol {
 }
 
 .users-title {
+    font-size: 30px;
     padding-top: 10px;
 }
 
@@ -1026,6 +1140,7 @@ ol {
 
 .post-title {
     padding-top: 120px;
+    font-size: 30px;
 }
 
 .likes {
@@ -1047,9 +1162,36 @@ ol {
     padding-top: 120px;
 }
 
+.fa-heart {
+    font-size: 25px;
+}
+
 .user_info {
     img {
         padding-top: 40px;
     }
+}
+.post-show {
+  .posts-title {
+    padding-top: 50px;
+  }
+}
+
+.moderate-font {
+    font-size: 15px;
+}
+
+.sub-title {
+    font-size: 35px;
+}
+
+.notification-view {
+    font-size: 20px;
+    a {
+        font-size: 35px;
+      }
+}
+.notification-comment {
+    font-size: 25px;
 }
 }
