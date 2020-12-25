@@ -1,6 +1,6 @@
 @import "bootstrap";
 
-// ミックスイン
+//// mixin ////
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
@@ -19,6 +19,11 @@ footer {
   }
 }
 
+.row {
+    margin-right: 0;
+}
+
+//// スマホ向け ////
 html {
     height: 100%;
 }
@@ -27,7 +32,7 @@ body {
     height: 100%;
 }
 
-//header
+//// header ////
 .navbar {
   height: 140px;
 }
@@ -58,7 +63,7 @@ body {
     font-size: 20px;
 }
 
-//main
+//// main ////
 #title-image {
   display:inline-block;
   position: relative;
@@ -70,7 +75,7 @@ body {
    }
 
    h1 {
-    width: 100%; /*absoluteで位置を設定するときに、幅と高さは必ず必要*/
+    width: 100%;
     height: 100%;
     color: rgb(26, 105, 224);
     font-weight: bold;
@@ -78,7 +83,6 @@ body {
     font-size: 25px;
     font-family:"Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
 
-    /*位置の設定 - 上下中央寄せ*/
     position: absolute;
     margin: auto;
     top: 90%;
@@ -86,14 +90,13 @@ body {
    } 
 
    p {
-    width: 100%; /*absoluteで位置を設定するときに、幅と高さは必ず必要*/
+    width: 100%; 
     height: 1.5em;
     color: rgb(26, 105, 224);
     font-weight: bold;
     text-align: center;
     font-size: 15px;
 
-    /*位置の設定 - 上下中央寄せ*/
     position: absolute;
     margin: auto;
     top: 0;
@@ -140,8 +143,7 @@ body {
 }
 
 .checkbox {
-    margin-top: -10px;
-    margin-bottom: 10px;
+    margin: -10px 0 10px 0;
     span {
       margin-left: 20px;
       font-weight: normal;
@@ -179,7 +181,7 @@ body {
 
 .feature-item {
   flex: 0 0 100%;
-  max-width: 100%; /* IE11バグ対応 */
+  max-width: 100%;
 }
 
 .go {
@@ -187,13 +189,13 @@ body {
   .btn-primary {
     padding: 20px 40px;
     font-size: 20px;
-    background: rgb(127, 255, 0); //ボタンの背景色
+    background: rgb(127, 255, 0);
     border-color: chartreuse;
     margin-bottom: 50px;
   }
 }
 
-//sign_up
+//// sign_up ////
 .signup-block {
   height: 1800px;
   position: relative; 
@@ -212,8 +214,7 @@ body {
   .sign-title {
     font-size: 50px;
     font-weight: bold;
-    padding-top: 120px;
-    padding-bottom: 60px;
+    padding: 120px 0 60px 0;
     text-align: center;
     color: rgb(127, 255, 0);
   }
@@ -238,8 +239,7 @@ body {
     color: #fff;
     background-color: rgb(127, 255, 0);
     border-color: rgb(127, 255, 0);
-    margin-top: 70px;
-    margin-bottom: 30px;
+    margin: 70px 0 30px 0;
     border-radius: 20px;
     padding: 20px;
   }
@@ -253,12 +253,12 @@ body {
       color: rgb(243, 116, 116);
     }
   }
-//profilepage
+  
+//// profilepage ////
 .gravatar_edit {
   margin-left: 120px;
   a {
-    padding-left: 20px;
-    padding-bottom: 10px;
+    padding: 0 0 10px 20px;
     color: gray;
     font-size: 16px;
 }
@@ -275,8 +275,7 @@ img.gravatar.user-picture {
   }
   
 .user-picture-box {
-    margin-top: 0.5em;
-    margin-left: 2em;
+    margin: 0.5em 0 0 2em;
 }
 
 .delete-account a {
@@ -285,8 +284,7 @@ img.gravatar.user-picture {
   
 .show-user-name {
     display: inline-block;
-    padding-top: 30px;
-    padding-left: 40px;
+    padding: 30px 0 0 40px;
     font-weight: bold;
     font-size: 40px;
 }
@@ -325,15 +323,14 @@ a.profile-title {
     width: 100%;
 }
 
-//loginpage
+//// loginpage ////
 .guide {
     text-align: center;
 }
 
-//indexpage
+//// indexpage ////
 .index-summary {
-    padding-top: 100px;
-    padding-bottom: 10px;
+    padding: 100px 0 10px 0;
     .pagination {
         margin-left: 80px;
     }
@@ -346,7 +343,6 @@ a.profile-title {
       padding: 10px 0;
       border-bottom: 2px solid gainsboro;
     }
-
 }
 
 .line-style {
@@ -360,8 +356,7 @@ a.profile-title {
 .users-title {
     font-weight: bold;
     text-align: center;
-    padding-top: 70px;
-    padding-bottom: 20px;
+    padding: 70px 0 20px 0;
     font-size: 50px;
 }
 
@@ -369,21 +364,20 @@ a.profile-title {
     font-size: 30px;
     padding-left: 10px;
 }
-//paginate
+
+//// paginate ////
 .pagination>li>a {          
-    border: none;     /*枠線をなくす*/
-    color: #696969;   /*文字の色を変える*/
+    border: none;
+    color: #696969;
   }
   
-  /* 表示しているページ番号のデザイン */
   .pagination>.active>a {     
-    background: #93c9ff;     /*背景の色を変える*/
-    border-radius: 15px;     /*角を丸くする*/
+    background: #93c9ff;
+    border-radius: 15px;
   }
   
-  /*ホバー時のデザイン*/
   .pagination>li>a:hover {        
-    border-radius: 15px;    /*角を丸くする*/
+    border-radius: 15px;
   }
 
   .page-item.active .page-link {
@@ -393,7 +387,7 @@ a.profile-title {
     border-color: darkcyan;
 }
 
-  //postpage
+  //// postpage ////
   .posts {
     list-style: none;
     padding: 0;
@@ -424,14 +418,12 @@ a.profile-title {
     }
     .gravatar {
       float: left;
-      margin-right: 10px;
-      margin-top: 5px;
+      margin: 5px 10px 0 0;
     }
   }
 
   .post-title {
-      padding-top: 200px;
-      padding-bottom: 10px;
+      padding: 200px 0 10px 0;
       font-weight: bold;
       font-size: 50px;
   }
@@ -441,7 +433,7 @@ a.profile-title {
     font-size: 40px;
     display: block;
     word-break: break-all;
-}
+ }
   
   a {
       color: black;
@@ -504,10 +496,8 @@ a.profile-title {
   .edit-post .delete-post {
     font-size: 15px;
   }
-//postbutton
 
-
-//postnew
+//// post new ////
 .input-need {
     color: red;
     font-size: 13px;
@@ -524,11 +514,11 @@ a.profile-title {
   .alert {
       margin-top: 120px;
   }
-  //postshowpage
+
+  //// post showpage ////
   .post-show {
       display: block;
-      margin-top: 80px;
-      margin-left: 100px;
+      margin: 80px 0 0 100px;
       .posts-title {
         padding-top: 100px;
         font-size: 50px;
@@ -557,21 +547,20 @@ a.profile-title {
     max-width: 60%;
     height: auto;
     box-sizing: border-box;
-    margin-bottom: 30px;
-    margin-left: 40px;
+    margin: 0 0 30px 40px;
   }
 
   .post-info {
     margin-bottom: 30px;
 }
-  //follow
+
+  //// follow ////
   .stats {
     margin: 5px 50px 0 50px;
-    width: 100%;
+    width: 360px;
   }
   .user_info {
-      margin-top: 80px;
-      margin-left: 50px;
+      margin: 80px 0 0 50px;
       h1 {
           padding-top: 15px;
       }
@@ -579,20 +568,18 @@ a.profile-title {
           padding-top: 90px;
       }
       span {
-          a {
-            padding-right: 15px;
-            padding-top: 15px;
-            font-size: 20px; 
-            color: gray;
-          }
+        a {
+          padding: 15px 15px 0 0;
+          font-size: 20px; 
+          color: gray;
+        }
       }
   }
 
   .profile-follow-title {
     font-size: 25px;
     font-weight: bold;
-    padding-top: 70px;
-    padding-bottom: 25px;
+    padding: 70px 0 25px 0;
     text-align: center;
 }
 
@@ -611,14 +598,14 @@ strong#followers {
 }
 
 .btn-go-chat {
-    margin-left: 155px;
-    margin-bottom: 30px;
+    margin: 0 0 30px 155px;
     border-color: palegoldenrod;
     background-color: palegoldenrod;
     font-size: 30px;
     color: black;
 }
-  //like
+
+//// like ////
   .like-btn-unlike {
     color: red;
   }
@@ -680,7 +667,7 @@ ol {
     padding-bottom: 30px;
 }
 
-  //comment
+//// comment ////
   .title-comment {
     padding-top: 50px;
     font-weight: bold;
@@ -725,13 +712,12 @@ ol {
     border-color: darkcyan;
 }
 
-  /* tabs */
+ //// tabs ////
 .nav-tabs a {
     font-size: 21px;
   }
   
-  /* talks */
-  
+//// talks ////
   .talks {
     list-style: none;
     padding: 0;
@@ -762,8 +748,7 @@ ol {
     }
     .gravatar {
       float: left;
-      margin-right: 10px;
-      margin-top: 5px;
+      margin: 5px 10px 0 0;
     }
   }
 
@@ -771,8 +756,7 @@ ol {
     margin-left: 130px;
     padding: 20px 40px;
     font-size: 30px;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin: 20px 0 30px 0;
     border-color: palegoldenrod;
     background-color: palegoldenrod;
     border-style: none;
@@ -822,7 +806,7 @@ ol {
     }
   }
   
-  /* message form */
+ //// message form ////
   
   .message-form {
     height: 80px;
@@ -854,8 +838,7 @@ ol {
   }
   
 .massage-title {
-    padding-top: 200px;
-    padding-bottom: 20px;
+    padding: 200px 0 20px 0;
     font-weight: bold;
     text-align: center;
 }
@@ -865,7 +848,6 @@ ol {
 }
 
 .btn-primary1 {
-    //color: #fff;
     margin-top: 20px;
     padding: 0.375rem 0.75rem;
     line-height: 1.5;
@@ -878,7 +860,8 @@ ol {
     border-color: darkcyan;
     //margin-left: 350px;
 }
-//notification
+
+//// notification ////
 .users-index {
     margin: 0 70px;
     padding-bottom: 10px;
@@ -890,8 +873,7 @@ ol {
 }
 
   .sub-title {
-    padding-top: 200px;
-    padding-bottom: 25px;
+    padding: 200px 0 25px 0;
     font-size: 50px;
     font-weight: bold;
     text-align: center;
@@ -911,8 +893,7 @@ ol {
   .notification-circle {
      color: rgb(127, 255, 0);
      position: absolute;
-     padding-left: 2.8rem;
-     padding-top: 0.5rem;
+     padding: 0.5rem 0 0 2.8rem;
   }
 
   .notification-comment {
@@ -922,36 +903,7 @@ ol {
 }
 
 @media screen and (min-width: 768px) {
-           //sign_up
-/*.signup-block {
-    height: 1220px;
-    position: relative; 
-    .signup-group {
-      height: 1000px;
-      width: 900px;
-    }
-    .sign-title {
-      font-size: 50px;
-      padding-top: 70px;
-      padding-bottom: 30px;
-    }
-    .form-control {
-      padding: 20px 150px;
-    }
-    label {
-      font-size: 30px;
-      padding: 20px 0 20px 130px;
-    }
-    .actions {
-      text-align: center;
-    }
-    .btn-primary {
-      font-size: 30px;
-      margin-top: 40px;
-      padding: 20px;
-    }
-  }
-  */
+//// main ////
   .help {
     img {
       width: 50%;
@@ -968,32 +920,37 @@ ol {
     }
   }
 
+//// btn ////
 .btn-lg, .btn-group-lg > .btn {
     padding: 1rem 2rem;
     line-height: 1.5;
     border-radius: 0.3rem;
 }
 
+//// profilepage ////
   .user-profile {
     margin-top: 140px;
 }
 }
 
+//// follow ////
 .follow-index {
     margin-left: 60px;
 }
 
+//// col-md ////
 .col-md-9 {
     flex: 0 0 75%;
-    //margin-left: 100px;
     max-width: 75%;
 }
 
+//// pagination ////
 .pagination {
     margin-top: 30px;
     padding-bottom: 30px;
 }
 
+//// PC向け ////
 @media screen and (min-width: 1024px) {
 .navbar {
   height: 90px;
@@ -1002,7 +959,8 @@ ol {
 #title {
     font-size: 30px;
 }
-//sign_up
+
+//// sign_up ////
 .signup-block {
     height: 850px;
     position: relative; 
@@ -1013,8 +971,7 @@ ol {
     }
     .sign-title {
       font-size: 30px;
-      padding-top: 60px;
-      padding-bottom: 10px;
+      padding: 60px 0 10px 0;
     }
     .form-control {
       width: 60%;
@@ -1024,9 +981,6 @@ ol {
       font-size: 20px;
       padding: 15px 0 10px 130px;
     }
-    .actions {
-      text-align: center;
-    }
     .btn-primary {
       font-size: 25px;
       width: 300px;
@@ -1034,6 +988,8 @@ ol {
       padding: 0;
     }
   }
+
+  //// main ////
   #title {
     font-size: 40px;
   }
@@ -1072,16 +1028,13 @@ ol {
     }
   }
 
-  .user-name {
-    font-size: 21px;
-}
-
   .btn-record {
-    margin-top: 10em;
+    margin: 10em 0 0 0;
     background-color: darkcyan;
     border-color: darkcyan;
-    margin-left: 0px;
 }
+
+//// postspage ////
 .posts {
     .description {
         margin-left: 60px;
@@ -1097,7 +1050,7 @@ ol {
 
   .feature-item {
     flex: 0 0 33.3333%;
-    max-width: 33.3333%; /* IE11バグ対応 */
+    max-width: 33.3333%;
   }
 
   .make {
@@ -1112,9 +1065,19 @@ ol {
     .btn-primary {
       font-size: 25px;
       padding: 20px 60px;
-      background: rgb(127, 255, 0); //ボタンの背景色
+      background: rgb(127, 255, 0);
+    }
+
+    .post-title {
+        padding-top: 120px;
+        font-size: 30px;
     }
   }
+
+  //// indexpage ////
+  .user-name {
+    font-size: 21px;
+}
   .index-summary {
       .pagination {
           margin-left: 190px;
@@ -1134,47 +1097,40 @@ ol {
     padding-bottom: 10px;
 }
 
+//// profilepage ////
 .profile-title {
     margin-top: 0;
 }
 
-.post-title {
-    padding-top: 120px;
-    font-size: 30px;
-}
-
-.likes {
-    margin-top: 100px;
-}
-
-.sub-title {
-    padding-top: 120px;
+//// post showpage////
+.post-show {
+    .posts-title {
+      padding-top: 50px;
+    }
   }
 
-  .notification-view {
-    padding: 10px 0;
-       a {
-          font-size: 25px;
-       }
-}
-
-.massage-title {
-    padding-top: 120px;
+//// like ////
+.likes {
+    margin-top: 100px;
 }
 
 .fa-heart {
     font-size: 25px;
 }
 
+.sub-title {
+    padding-top: 120px;
+  }
+
+//// message ////
+.massage-title {
+    padding-top: 120px;
+}
+
 .user_info {
     img {
         padding-top: 40px;
     }
-}
-.post-show {
-  .posts-title {
-    padding-top: 50px;
-  }
 }
 
 .moderate-font {
@@ -1185,11 +1141,13 @@ ol {
     font-size: 35px;
 }
 
+//// notification ////
 .notification-view {
     font-size: 20px;
+    padding: 10px 0;
     a {
-        font-size: 35px;
-      }
+        font-size: 25px;
+    }
 }
 .notification-comment {
     font-size: 25px;
