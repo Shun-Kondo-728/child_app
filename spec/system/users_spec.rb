@@ -197,11 +197,11 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_css ".like-post", count: 2
         expect(page).to have_content new_post.title
         expect(page).to have_content new_post.description
-        expect(page).to have_content "posted by #{user.name}"
+        expect(page).to have_content "投稿ユーザー： #{user.name}"
         expect(page).to have_link user.name, href: user_path(user)
         expect(page).to have_content other_new_post.title
         expect(page).to have_content other_new_post.description
-        expect(page).to have_content "posted by #{other_user.name}"
+        expect(page).to have_content "投稿ユーザー： #{other_user.name}"
         expect(page).to have_link other_user.name, href: user_path(other_user)
         user.unlike(other_new_post)
         visit likes_path
