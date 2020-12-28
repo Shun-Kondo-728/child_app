@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Problem, type: :model do
+  let!(:problem_yesterday) { create(:problem, :problem_yesterday) }
+  let!(:problem_one_week_ago) { create(:problem, :problem_one_week_ago) }
+  let!(:problem_one_month_ago) { create(:problem, :problem_one_month_ago) }
   let!(:problem) { create(:problem) }
 
   context "validation" do
@@ -18,6 +21,12 @@ RSpec.describe Problem, type: :model do
       problem = build(:problem, user_id: nil)
       problem.valid?
       expect(problem.errors[:user_id]).to include("を入力してください")
+    end
+
+    context "sort order" do
+      it "the most recent post is the first post" do
+        expect(problem).to eq Problem.first
+      end
     end
   end
 end

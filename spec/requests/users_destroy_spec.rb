@@ -7,6 +7,7 @@ RSpec.describe "Delete user", type: :request do
   let!(:new_post) { create(:post, user: user) }
   let!(:message) { create(:message, user: user) }
   let!(:membership) { create(:membership, user: user) }
+  let!(:problem) { create(:problem, user: user) }
 
   context "When the user associated with the dish is deleted" do
     it "Dishes associated with the user are also deleted" do
@@ -73,6 +74,15 @@ RSpec.describe "Delete user", type: :request do
       expect {
         delete user_path(user)
       }.to change(Membership, :count).by(-1)
+    end
+  end
+
+  context "when the user associated with the problem post is deleted" do
+    it "Problem posts associated with users are also deleted" do
+      login_for_request(user)
+      expect {
+        delete user_path(user)
+      }.to change(Problem, :count).by(-1)
     end
   end
 end
