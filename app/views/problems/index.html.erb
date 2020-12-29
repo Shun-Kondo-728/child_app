@@ -1,0 +1,17 @@
+<% provide(:title, '悩みの場') %>
+
+<div class="container">
+  <div class="index-summary">
+  <h1 class=users-title>悩みの場</h1>
+  <div class="row">
+      <div class="col-md-9">
+          <% if @problems.any? %>
+            <h3 class="profile-post-title">投稿 (<%= @problems.count %>)</h3>
+            <ol class="posts">
+              <%= render @problems %>
+            </ol>
+              <%= paginate @problems %>
+          <% end %>
+      </div>
+</div>
+</div>

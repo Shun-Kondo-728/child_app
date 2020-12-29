@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   end
   resources :messages,            only: [:create, :destroy]
   resources :notifications, only: :index
+  resources :problems
 end

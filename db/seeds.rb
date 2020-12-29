@@ -11,6 +11,11 @@ User.create!(name:  "鈴木 一郎",
                  user_id: 1)
 end
 
+10.times do |n|
+    Problem.create!(description: "こんな悩みがあります。",
+                    user_id: 1)
+end
+
 99.times do |n|
 name  = Faker::Name.name
 email = "sample-#{n+1}@example.com"
