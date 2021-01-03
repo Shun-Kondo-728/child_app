@@ -2,9 +2,9 @@
 
 <div class="container">
   <div class="index-summary">
-  <h1 class=users-title>悩みの場</h1>
-  <div class="row">
-      <div class="col-md-9">
+    <h1 class=users-title>悩みの場</h1>
+    <div class="row">
+        <div class="col-md-9">
           <% if @problems.any? %>
             <h3 class="profile-post-title">投稿 (<%= @problems.count %>)</h3>
             <ol class="posts">
@@ -12,6 +12,10 @@
             </ol>
               <%= paginate @problems %>
           <% end %>
-      </div>
-</div>
+        </div>
+        <div class="col-md-2">
+          <p><%= link_to "投稿する", new_problem_path, class: "btn btn-primary btn-lg btn-record1" %></p>
+        </div>
+    </div>
+  </div>
 </div>

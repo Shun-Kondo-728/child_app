@@ -26,5 +26,16 @@ RSpec.describe "Posts", type: :system do
           expect(page).to have_css ".pagination"
         end
       end
+
+      context "trouble posting feed" do
+        before do
+          login_for_system(user)
+        end
+
+        it "the Post link is displayed" do
+         visit problems_path
+         expect(page).to have_link "投稿する", href: new_problem_path
+        end
+      end
   end
 end

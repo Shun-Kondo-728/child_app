@@ -6,4 +6,9 @@ class ProblemsController < ApplicationController
         @problems = @problems.page(params[:page]).per(5)
         @problem = current_user.problems.new
     end
+
+    def new
+        @problem = Problem.new
+    end
+
 end
