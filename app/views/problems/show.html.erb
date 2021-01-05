@@ -7,6 +7,10 @@
       <% if current_user == @problem.user %>
         <%= link_to "編集", edit_problem_path(@problem), class: 'edit-post' %>
       <% end %>
+      <% if current_user.admin? || (current_user == @problem.user) %>
+        <%= link_to "削除", problem_path(@problem), method: :delete, class: 'delete-post',
+                                      data: { confirm: "本当に削除しますか？" } %>
+      <% end %>
     </div>
     <h4 class="problem-post-description"><%= @problem.description %></h4>
   </div>
