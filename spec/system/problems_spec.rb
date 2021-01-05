@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe "Posts", type: :system do
+RSpec.describe "Problem posts", type: :system do
   let!(:user) { create(:user) }
-  let!(:problem) { create(:problem) }
+  let!(:problem) { create(:problem, user: user) }
 
   describe "profile page" do
       context "page layout" do
@@ -71,6 +71,24 @@ RSpec.describe "Posts", type: :system do
           click_button "投稿する"
           expect(page).to have_content "内容を入力してください"
         end
+    end
+  end
+
+  describe "problem post details page" do
+    context "page layout" do
+      before do
+        login_for_system(user)
+        visit problem_path(problem)
+      end
+
+      it "the correct title is displayed" do
+        expect(page).to have_title full_title("悩み投稿")
+      end
+
+      it "problem post information is displayed" do
+        expect(page).to have_content user.name
+        expect(page).to have_content problem.description
+      end
     end
   end
 end

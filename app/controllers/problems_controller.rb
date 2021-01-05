@@ -11,6 +11,10 @@ class ProblemsController < ApplicationController
     @problem = Problem.new
   end
 
+  def show
+    @problem = Problem.find(params[:id])
+  end
+
   def create
     @problem = current_user.problems.build(problem_params)
     if @problem.save

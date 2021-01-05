@@ -902,6 +902,18 @@ ol {
     font-size: 35px;
 }
 
+//// problem ////
+.problem-user-name {
+    display: inline-block;
+    font-size: 60px;
+    padding-top: 100px;
+}
+
+.problem-post-description {
+    padding: 30px 0 30px 0;
+    font-size: 50px;
+}
+
 @media screen and (min-width: 768px) {
 //// main ////
   .help {
@@ -1156,5 +1168,17 @@ ol {
 }
 .notification-comment {
     font-size: 25px;
+}
+
+//// problem ////
+.problem-user-name {
+    display: inline-block;
+    font-size: 40px;
+    padding-top: 100px;
+}
+
+.problem-post-description {
+    padding: 30px 0 30px 0;
+    font-size: 30px;
 }
 }
