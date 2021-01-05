@@ -18,7 +18,7 @@ RSpec.describe "Posts", type: :request do
         end
       end
 
-      it "being able to register with valid cooking data" do
+      it "being able to register with valid post data" do
         expect {
           post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
                                              description: "この曲が、一番オススメです！",
@@ -29,7 +29,7 @@ RSpec.describe "Posts", type: :request do
         expect(response).to render_template('posts/show')
       end
 
-      it "cannot be registered with invalid food data" do
+      it "cannot be registered with invalid post data" do
         expect {
           post posts_path, params: { post: { title: "赤ちゃんが泣き止む曲",
                                              description: "",

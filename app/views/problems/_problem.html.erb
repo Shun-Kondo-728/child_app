@@ -1,3 +1,5 @@
+<% @problem = problem %>
+
 <li id="problem-<%= problem.id %>">
   <%= link_to gravatar_for(problem.user, size: 50), problem.user %>
   <span class="description"><%= problem.description %></span><br>

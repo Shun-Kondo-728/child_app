@@ -5,10 +5,29 @@ RSpec.describe "Problems", type: :request do
   let!(:problem) { create(:problem, user: user) }
 
   context "for logged-in users" do
-    it "the response is displayed normally" do
-      login_for_request(user)
+    before do
       get new_problem_path
-      expect(response).to have_http_status "200"
+      login_for_request(user)
+    end
+
+    context "friendly forwarding" do
+      it "the response is displayed normally" do
+        expect(response).to redirect_to new_problem_url
+      end
+    end
+
+    it "being able to register with valid problem post data" do
+      expect {
+        post problems_path, params: { problem: { description: "こんな悩みがあります。" } }
+      }.to change(Problem, :count).by(1)
+      follow_redirect!
+      expect(response).to render_template('problems/index')
+    end
+
+    it "cannot be registered with invalid problem post data" do
+      expect {
+        post problems_path, params: { problem: { description: "" } }
+      }.not_to change(Problem, :count)
       expect(response).to render_template('problems/new')
     end
   end

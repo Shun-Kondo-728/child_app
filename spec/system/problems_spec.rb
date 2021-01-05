@@ -38,4 +38,39 @@ RSpec.describe "Posts", type: :system do
         end
       end
   end
+
+  describe "problem post page" do
+    before do
+      login_for_system(user)
+      visit new_problem_path
+    end
+
+    context "page layout" do
+      it "the problempost string is present" do
+        expect(page).to have_content '投稿'
+      end
+
+      it "the correct title is displayed" do
+        expect(page).to have_title full_title('投稿')
+      end
+
+      it "appropriate label is displayed in the input part" do
+        expect(page).to have_content '内容'
+      end
+    end
+
+    context "problem post processing" do
+        it "if you problem post with valid information, a flash of successful posting will be displayed" do
+          fill_in "内容", with: "こんな悩みがあります。"
+          click_button "投稿する"
+          expect(page).to have_content "投稿が登録されました！"
+        end
+
+        it "when posting with invalid information, a flash of posting failure is displayed" do
+          fill_in "内容", with: ""
+          click_button "投稿する"
+          expect(page).to have_content "内容を入力してください"
+        end
+    end
+  end
 end

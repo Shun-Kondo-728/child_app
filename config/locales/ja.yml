@@ -29,6 +29,8 @@ ja:
         user_id: コメント投稿者のID
         dish_id: コメントされた投稿のID
         content: コメント
+      problem:
+        description: 内容
   date:
     abbr_day_names:
     - 日
