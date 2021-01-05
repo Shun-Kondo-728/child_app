@@ -24,11 +24,9 @@ RSpec.describe "post edit", type: :request do
 
   context "for users who are not logged in" do
     it "redirect to login screen" do
-      # 編集
       get edit_post_path(new_post)
       expect(response).to have_http_status "302"
       expect(response).to redirect_to login_path
-      # 更新
       patch post_path(new_post), params: { post: { title: "赤ちゃんが泣き止む曲",
                                                    description: "この曲が、一番オススメです！",
                                                    recommended: 4 } }
@@ -39,12 +37,10 @@ RSpec.describe "post edit", type: :request do
 
   context "for users of different accounts" do
     it "redirect to home screen" do
-      # 編集
       login_for_request(other_user)
       get edit_post_path(new_post)
       expect(response).to have_http_status "302"
       expect(response).to redirect_to root_path
-      # 更新
       patch post_path(new_post), params: { post: {  title: "赤ちゃんが泣き止む曲",
                                                     description: "この曲が、一番オススメです！",
                                                     recommended: 4 } }

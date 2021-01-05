@@ -3,6 +3,11 @@
 <div class="container">
   <div class="post-show">
     <span class="problem-user-name"><%= current_user.name %></span><br>
+    <div class="change-post">
+      <% if current_user == @problem.user %>
+        <%= link_to "編集", edit_problem_path(@problem), class: 'edit-post' %>
+      <% end %>
+    </div>
     <h4 class="problem-post-description"><%= @problem.description %></h4>
   </div>
 </div>

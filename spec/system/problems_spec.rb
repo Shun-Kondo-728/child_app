@@ -91,4 +91,38 @@ RSpec.describe "Problem posts", type: :system do
       end
     end
   end
+
+  describe "problem post edit page" do
+    before do
+      login_for_system(user)
+      visit problem_path(problem)
+      click_link "編集"
+    end
+
+    context "page layout" do
+      it "the correct title is displayed" do
+        expect(page).to have_title full_title('投稿の編集')
+      end
+
+      it "appropriate label is displayed in the input part" do
+        expect(page).to have_content '内容'
+      end
+    end
+
+    context "problem post update process" do
+        it "valid updates" do
+          fill_in "内容", with: "編集：実は悩みがあります。"
+          click_button "更新する"
+          expect(page).to have_content "投稿が更新されました！"
+          expect(problem.reload.description).to eq "編集：実は悩みがあります。"
+        end
+
+        it "invalid update" do
+          fill_in "内容", with: ""
+          click_button "更新する"
+          expect(page).to have_content '内容を入力してください'
+          expect(problem.reload.description).not_to eq ""
+        end
+    end
+  end
 end
