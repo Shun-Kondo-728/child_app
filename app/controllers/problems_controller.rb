@@ -14,6 +14,7 @@ class ProblemsController < ApplicationController
 
   def show
     @problem = Problem.find(params[:id])
+    @comment = Comment.new
   end
 
   def create
