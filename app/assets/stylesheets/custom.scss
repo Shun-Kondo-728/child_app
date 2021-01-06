@@ -905,13 +905,42 @@ ol {
 //// problem ////
 .problem-user-name {
     display: inline-block;
-    font-size: 60px;
-    padding-top: 100px;
+    font-size: 50px;
+    padding: 200px 0 0 30px;
 }
 
 .problem-post-description {
-    padding: 30px 0 30px 0;
+    display: block;
+    word-break: break-all;
+    padding: 20px 0 100px 110px;
     font-size: 50px;
+    font-weight: normal;
+}
+
+.change-problem-post {
+    display: inline-block;
+    margin-left: 100px;
+}
+
+.problem-post-show {
+    display: block;
+    margin: 80px 0 0 30px;
+}
+
+.problem-user-picture img {
+    width: 70px;
+    margin-bottom: 30px;
+}
+
+.edit-problem-post {
+    font-size: 30px;
+    color: gray;
+}
+
+.delete-problem-post {
+    font-size: 30px;
+    padding-left: 15px;
+    color: gray;
 }
 
 @media screen and (min-width: 768px) {
