@@ -25,4 +25,5 @@ Rails.application.routes.draw do
   resources :messages,            only: [:create, :destroy]
   resources :notifications, only: :index
   resources :problems
+  resources :problem_comments, only: [:create, :destroy]
 end
