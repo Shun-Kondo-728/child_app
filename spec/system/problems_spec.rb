@@ -95,7 +95,7 @@ RSpec.describe "Problem posts", type: :system do
         it "a flash of successful deletion is displayed" do
           login_for_system(user)
           visit problem_path(problem)
-          within find('.change-post') do
+          within find('.change-problem-post') do
             click_on '削除'
           end
           page.driver.browser.switch_to.alert.accept

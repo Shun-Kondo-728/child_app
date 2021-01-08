@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :problem_comment do
-    problem_id 1
-    user_id 1
-    content "MyText"
+    user_id { 1 }
+    content { "こうした方がいいです。" }
+    association :problem
   end
 end
