@@ -14,5 +14,10 @@
       <% end %>
     </div>
     <h4 class="problem-post-description"><%= @problem.description %></h4>
+    <div class="col-md-7">
+      <div class="comment">
+        <%= render "problem_comments/new" %>
+      </div>
+    </div>
   </div>
 </div>
