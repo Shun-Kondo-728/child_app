@@ -2,7 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Problem posts", type: :system do
   let!(:user) { create(:user) }
+  let!(:other_user) { create(:user) }
   let!(:problem) { create(:problem, user: user) }
+  let!(:problem_comment) { create(:problem_comment, user_id: user.id, problem: problem) }
 
   describe "profile page" do
       context "page layout" do
@@ -142,6 +144,33 @@ RSpec.describe "Problem posts", type: :system do
           click_on '削除'
           page.driver.browser.switch_to.alert.accept
           expect(page).to have_content '投稿が削除されました'
+        end
+    end
+
+    context "register & delete problem_comments" do
+        it "successful registration & deletion of problem_comments for your problem" do
+          login_for_system(user)
+          visit problem_path(problem)
+          fill_in "problem_comment_content", with: "そうなんですね。"
+          click_button "コメント"
+          within find("#comment-#{ProblemComment.last.id}") do
+            expect(page).to have_selector 'span', text: user.name
+            expect(page).to have_selector 'span', text: 'そうなんですね。'
+          end
+          expect(page).to have_content "コメントを追加しました！"
+          click_link "削除", href: problem_comment_path(ProblemComment.last)
+          expect(page).not_to have_selector 'span', text: 'そうなんですね。'
+          expect(page).to have_content "コメントを削除しました"
+        end
+
+        it "there is no delete link in the problem_comment of another user's problem" do
+          login_for_system(other_user)
+          visit problem_path(problem)
+          within find("#comment-#{problem_comment.id}") do
+            expect(page).to have_selector 'span', text: user.name
+            expect(page).to have_selector 'span', text: problem_comment.content
+            expect(page).not_to have_link '削除', href: problem_path(problem)
+          end
         end
     end
   end
