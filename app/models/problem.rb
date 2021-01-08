@@ -4,4 +4,8 @@ class Problem < ApplicationRecord
     default_scope -> { order(created_at: :desc) }
     validates :user_id, presence: true
     validates :description, presence: true, length: { maximum: 200 }
+
+    def feed_comment(problem_id)
+      ProblemComment.where("problem_id = ?", problem_id)
+    end
 end

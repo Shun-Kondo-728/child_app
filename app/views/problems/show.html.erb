@@ -1,5 +1,5 @@
 <% provide(:title, '悩み投稿') %>
-
+<% @problem_comments  = @problem.feed_comment(@problem.id) %>
 <div class="container">
   <div class="problem-post-show">
     <%= link_to gravatar_for(@problem.user, size: 50), @problem.user, class:"problem-user-picture" %>
@@ -16,6 +16,7 @@
     <h4 class="problem-post-description"><%= @problem.description %></h4>
     <div class="col-md-7">
       <div class="comment">
+        <%= render "problem_comments/feed_comments" %>
         <%= render "problem_comments/new" %>
       </div>
     </div>
