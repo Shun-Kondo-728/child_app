@@ -1,0 +1,2 @@
+class ProblemComment < ApplicationRecord
+end
