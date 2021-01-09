@@ -490,12 +490,9 @@ a.profile-title {
 
   .change-post {
     display: inline-block;
-    margin-left: 100px;
+    margin-bottom: 20px;
   }
   
-  .edit-post .delete-post {
-    font-size: 15px;
-  }
 
 //// post new ////
 .input-need {
@@ -512,7 +509,7 @@ a.profile-title {
   }
 
   .alert {
-      margin-top: 120px;
+      margin-top: 140px;
   }
 
   //// post showpage ////
@@ -534,12 +531,12 @@ a.profile-title {
   }
 
   .edit-post {
-    font-size: 20px;
+    font-size: 30px;
     color: gray;
 }
 
 .delete-post {
-    font-size: 20px;
+    font-size: 30px;
     padding-left: 15px;
     color: gray;
 }
@@ -676,6 +673,8 @@ ol {
 
   #comment_content {
     width: 100%;
+    margin-top: 10px;
+    height: 70px;
 }
   
   .comments {
@@ -687,25 +686,33 @@ ol {
       .comment {
         display: block;
         word-break: break-all;
-        font-size: 25px;
+        font-size: 40px;
         width: 100%;
         padding-left: 40px;
       }
     }
   }
+
+  .comment-delete a {
+    display: inline-block;
+    padding-top: 20px;
+    font-size: 20px;
+    color: gray;
+}
   
   .user a {
     color: steelblue;
     font-size: 25px;
 }
   .comment-create-at {
-    font-size: 17px;
+    font-size: 23px;
     color: grey;
   }
 
   .btn-comment {
+    width: 70%;
     margin: 20px 0 70px 0;
-    padding: 10px 50px;
+    padding: 10px 0;
     font-size: 20px;
     font-weight: bold;
     background-color: darkcyan;
@@ -912,7 +919,7 @@ ol {
 .problem-post-description {
     display: block;
     word-break: break-all;
-    padding: 20px 0 100px 110px;
+    padding: 20px 0 100px 90px;
     font-size: 50px;
     font-weight: normal;
 }
@@ -941,6 +948,11 @@ ol {
     font-size: 30px;
     padding-left: 15px;
     color: gray;
+}
+
+#problem_comment_content {
+    width: 70%;
+    height: 70px;
 }
 
 @media screen and (min-width: 768px) {
@@ -1207,7 +1219,20 @@ ol {
 }
 
 .problem-post-description {
-    padding: 30px 0 30px 0;
-    font-size: 30px;
+    padding-left: 100px;
+    font-size: 40px;
+}
+
+.problem-post-show {
+    margin: 80px 0 0 100px;
+}
+
+.edit-problem-post {
+    font-size: 25px;
+    color: gray;
+}
+
+.delete-problem-post {
+    font-size: 25px;
 }
 }
