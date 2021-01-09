@@ -15,14 +15,14 @@ RSpec.describe "ProblemComments", type: :request do
       it "problem_comments with valid content can be registered" do
         expect {
           post problem_comments_path, params: { problem_id: problem.id,
-                                        problem_comment: { content: "そうなんですね。" } }
+                                                problem_comment: { content: "そうなんですね。" } }
         }.to change(problem.problem_comments, :count).by(1)
       end
 
       it "problem_comments with invalid content cannot be registered" do
         expect {
           post problem_comments_path, params: { problem_id: problem.id,
-                                        problem_comment: { content: "" } }
+                                                problem_comment: { content: "" } }
         }.not_to change(problem.problem_comments, :count)
       end
     end
@@ -31,7 +31,7 @@ RSpec.describe "ProblemComments", type: :request do
       it "problem_comments cannot be registered and redirect to the login page" do
         expect {
           post problem_comments_path, params: { problem_id: problem.id,
-                                        comment: { content: "最高です！" } }
+                                                comment: { content: "そうなんですね。" } }
         }.not_to change(problem.problem_comments, :count)
         expect(response).to redirect_to login_path
       end

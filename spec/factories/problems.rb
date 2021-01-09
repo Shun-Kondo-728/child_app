@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :problem do
     description { "こんな悩みがあります。" }
     association :user
-    created_at { Time.current } 
+    created_at { Time.current }
   end
   trait :problem_yesterday do
     created_at { 1.day.ago }
