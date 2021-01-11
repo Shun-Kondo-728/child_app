@@ -7,7 +7,7 @@ class ProblemCommentsController < ApplicationController
     @problem_comment = @problem.problem_comments.build(user_id: current_user.id, content: params[:problem_comment][:content])
     if !@problem.nil? && @problem_comment.save
       flash[:success] = "コメントを追加しました！"
-      @problem = @problem_comment.post
+      @problem = @problem_comment.problem
       @problem.create_notification_problem_comment!(current_user, @problem_comment.id)
     else
       flash[:danger] = "空のコメントは投稿できません。"

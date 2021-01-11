@@ -1,11 +1,14 @@
 <% visiter = notification.visiter %>
 <% post=notification.post %>
+<% problem=notification.problem %>
 <div class="col-md-6.mx-auto">
   <div class="notification-view">
     <%= notification_form(notification) %><span class="moderate-font"><%= " (#{time_ago_in_words(notification.created_at)}前)" %></span>
     <br>
     <% if !@comment.nil? %>
       <p class="notification-comment"><%= @comment.content %></p>
+    <% elsif !@problem_comment.nil? %>
+      <p class="notification-comment"><%= @problem_comment.content %></p>
     <% end %>
   </div>
 </div>
