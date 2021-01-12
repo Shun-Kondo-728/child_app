@@ -3,9 +3,7 @@ class ProblemsController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def index
-    @problems = current_user.problems.all
-    @problems = @problems.page(params[:page]).per(5)
-    @problem = current_user.problems.new
+    @feed_problem_items = current_user.feed_problem.page(params[:page]).per(10)
   end
 
   def new

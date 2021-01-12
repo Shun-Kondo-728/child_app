@@ -5,13 +5,8 @@
     <h1 class=users-title>悩みの場</h1>
     <div class="row">
         <div class="col-md-9">
-          <% if @problems.any? %>
-            <h3 class="profile-post-title">投稿 (<%= @problems.count %>)</h3>
-            <ol class="posts">
-              <%= render @problems %>
-            </ol>
-              <%= paginate @problems %>
-          <% end %>
+          <h3 class="post-title">ユーザーの悩み投稿 (<%= @feed_problem_items.count %>)</h3>
+          <%= render 'shared/feed_problem' %>
         </div>
         <div class="col-md-2">
           <p><%= link_to "投稿する", new_problem_path, class: "btn btn-primary btn-lg btn-record1" %></p>
