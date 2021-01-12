@@ -5,6 +5,8 @@ RSpec.describe "Notifications", type: :request do
   let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, user: user) }
   let!(:other_new_post) { create(:post, user: other_user) }
+  let!(:problem) { create(:problem, user: user) }
+  let!(:other_problem) { create(:problem, user: other_user) }
 
   context "display of notification list page" do
     context "for logged-in users" do
@@ -32,7 +34,7 @@ RSpec.describe "Notifications", type: :request do
       login_for_request(user)
     end
 
-    context "for user postsて" do
+    context "for user posts" do
       it "notifications are created by like registration" do
         post "/likes/#{other_new_post.id}/create"
         expect(other_user.reload.active_notifications).to be_truthy
@@ -46,6 +48,12 @@ RSpec.describe "Notifications", type: :request do
 
       it "the follow creates a notification" do
         post relationships_path, params: { followed_id: other_user.id }
+        expect(other_user.reload.active_notifications).to be_truthy
+      end
+
+      it "notifications are created by problem_comments" do
+        post problem_comments_path, params: { problem_id: other_problem.id,
+                                              problem_comment: { content: "そうなんですね。" } }
         expect(other_user.reload.active_notifications).to be_truthy
       end
     end
