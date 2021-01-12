@@ -1,9 +1,10 @@
 <% provide(:title, '悩み投稿') %>
+<% problem_user = User.find(@problem.user_id) %>
 <% @problem_comments  = @problem.feed_comment(@problem.id) %>
 <div class="container">
   <div class="problem-post-show">
     <%= link_to gravatar_for(@problem.user, size: 50), @problem.user, class:"problem-user-picture" %>
-    <span class="problem-user-name"><%= current_user.name %></span><br>
+    <span class="problem-user-name"><%= problem_user.name %></span><br>
     <div class="change-problem-post">
       <% if current_user == @problem.user %>
         <%= link_to "編集", edit_problem_path(@problem), class: 'edit-problem-post' %>

@@ -900,7 +900,7 @@ ol {
   .notification-circle {
      color: rgb(127, 255, 0);
      position: absolute;
-     padding: 0.5rem 0 0 2.8rem;
+     padding-top: 3.5rem;
   }
 
   .notification-comment {
@@ -1007,6 +1007,7 @@ ol {
     margin-top: 30px;
     padding-bottom: 30px;
 }
+
 
 //// PC向け ////
 @media screen and (min-width: 1024px) {
@@ -1155,6 +1156,10 @@ ol {
     padding-bottom: 10px;
 }
 
+.alert {
+    margin-top: 90px;
+}
+
 //// profilepage ////
 .profile-title {
     margin-top: 0;
@@ -1209,6 +1214,10 @@ ol {
 }
 .notification-comment {
     font-size: 25px;
+}
+
+.notification-circle {
+    padding: 0.5rem 0 0 6.4rem;
 }
 
 //// problem ////
