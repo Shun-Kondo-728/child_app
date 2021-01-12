@@ -5,6 +5,8 @@ RSpec.describe "Users", type: :system do
   let!(:other_user) { create(:user) }
   let!(:new_post) { create(:post, user: user) }
   let!(:other_new_post) { create(:post, user: other_user) }
+  let!(:problem) { create(:problem, user: user) }
+  let!(:other_problem) { create(:problem, user: other_user) }  
   let!(:admin_user) { create(:user, :admin) }
 
   describe "User list page" do
@@ -245,6 +247,17 @@ RSpec.describe "Users", type: :system do
           login_for_system(other_user)
           visit notifications_path
           expect(page).to have_content "#{user.name}が#{other_new_post.title}にコメントしました"
+          expect(page).to have_content 'コメントしました'
+        end
+
+        it "notifications are created by problem_comments" do
+          visit problem_path(other_problem)
+          fill_in "problem_comment_content", with: "コメントしました"
+          click_button "コメント"
+          logout
+          login_for_system(other_user)
+          visit notifications_path
+          expect(page).to have_content "#{user.name}が#{other_problem.description}にコメントしました"
           expect(page).to have_content 'コメントしました'
         end
       end
