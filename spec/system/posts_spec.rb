@@ -177,13 +177,13 @@ RSpec.describe "Posts", type: :system do
         create(:post, title: '育児用洗剤', user: user)
         create(:post, title: '育児用ミルク', user: other_user)
 
-        fill_in 'q_title_cont', with: '赤ちゃん'
+        fill_in 'q_title_or_description_cont', with: '赤ちゃん'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”赤ちゃん”の検索結果：1件"
         within find('.posts') do
           expect(page).to have_css 'li', count: 1
         end
-        fill_in 'q_title_cont', with: '育児'
+        fill_in 'q_title_or_description_cont', with: '育児'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”育児”の検索結果：1件"
         within find('.posts') do
@@ -191,22 +191,30 @@ RSpec.describe "Posts", type: :system do
         end
 
         user.follow(other_user)
-        fill_in 'q_title_cont', with: '赤ちゃん'
+        fill_in 'q_title_or_description_cont', with: '赤ちゃん'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”赤ちゃん”の検索結果：2件"
         within find('.posts') do
           expect(page).to have_css 'li', count: 2
         end
-        fill_in 'q_title_cont', with: '育児'
+        fill_in 'q_title_or_description_cont', with: '育児'
         click_button '検索'
         expect(page).to have_css 'h3', text: "”育児”の検索結果：2件"
         within find('.posts') do
           expect(page).to have_css 'li', count: 2
         end
+
+        create(:post, description: '赤ちゃんの泣き声', user: user)
+          fill_in 'q_title_or_description_cont', with: '赤ちゃん'
+          click_button '検索'
+          expect(page).to have_css 'h3', text: "”赤ちゃん”の検索結果：3件"
+          within find('.posts') do
+            expect(page).to have_css 'li', count: 3
+          end
       end
 
       it "if you press the search button without entering a search word, the post list will be displayed." do
-        fill_in 'q_title_cont', with: ''
+        fill_in 'q_title_or_description_cont', with: ''
         click_button '検索'
         expect(page).to have_css 'h3', text: "投稿一覧"
         within find('.posts') do

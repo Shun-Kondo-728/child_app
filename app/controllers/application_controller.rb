@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   def set_search
     if logged_in?
-      @search_word = params[:q][:title_cont] if params[:q]
+      @search_word = params[:q][:title_or_description_cont] if params[:q]
       @q = current_user.feed.page(params[:page]).per(10).ransack(params[:q])
       @feed_items = current_user.feed.page(params[:page]).per(10)
       @posts = @q.result(distinct: true)
@@ -13,7 +13,6 @@ class ApplicationController < ActionController::Base
 
   private
 
-    # ログイン済みユーザーかどうか確認
     def logged_in_user
       unless logged_in?
         store_location
