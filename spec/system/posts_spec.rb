@@ -157,4 +157,69 @@ RSpec.describe "Posts", type: :system do
       end
     end
   end
+
+  context "search function" do
+    context "if you are logged in" do
+      before do
+        login_for_system(user)
+        visit root_path
+      end
+
+      it "a search window is displayed on each page after login" do
+        expect(page).to have_css 'form#post_search'
+        visit posts_path
+        expect(page).to have_css 'form#post_search'
+      end
+
+      it "the result corresponding to the search word is displayed from the feed" do
+        create(:post, title: '赤ちゃんのオムツ', user: user)
+        create(:post, title: '赤ちゃんのおもちゃ', user: other_user)
+        create(:post, title: '育児用洗剤', user: user)
+        create(:post, title: '育児用ミルク', user: other_user)
+
+        fill_in 'q_title_cont', with: '赤ちゃん'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”赤ちゃん”の検索結果：1件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 1
+        end
+        fill_in 'q_title_cont', with: '育児'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”育児”の検索結果：1件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 1
+        end
+
+        user.follow(other_user)
+        fill_in 'q_title_cont', with: '赤ちゃん'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”赤ちゃん”の検索結果：2件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 2
+        end
+        fill_in 'q_title_cont', with: '育児'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”育児”の検索結果：2件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 2
+        end
+      end
+
+      it "if you press the search button without entering a search word, the post list will be displayed." do
+        fill_in 'q_title_cont', with: ''
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "投稿一覧"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: Post.count
+        end
+      end
+    end
+
+    context "if you are not logged in" do
+      it "the search window is not displayed" do
+        visit root_path
+        expect(page).not_to have_css 'form#post_search'
+      end
+    end
+  end
 end
