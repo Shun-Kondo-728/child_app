@@ -423,7 +423,7 @@ a.profile-title {
   }
 
   .post-title {
-      padding: 200px 0 10px 0;
+      padding-top: 80px;
       font-weight: bold;
       font-size: 50px;
   }
@@ -862,10 +862,9 @@ ol {
   }
 
   .btn-record {
-    margin-top: 15em;
+    margin-top: 5em;
     background-color: darkcyan;
     border-color: darkcyan;
-    //margin-left: 350px;
 }
 
 //// notification ////
@@ -953,6 +952,29 @@ ol {
 #problem_comment_content {
     width: 70%;
     height: 70px;
+}
+
+//// search ////
+form#post_search {
+    margin-top: 200px;
+    width: 1000px;
+}
+
+input#q_title_cont {
+    width: 100%;
+    font-size: 30px;
+}
+
+.form-group input.btn.btn-primary {
+    width: 100%;
+    padding: 10px 275px 10px 275px;
+    font-size: 30px;
+    background-color: darkcyan;
+    border-color: darkcyan;
+}
+
+#searchs {
+    padding-top: 200px;
 }
 
 @media screen and (min-width: 768px) {
