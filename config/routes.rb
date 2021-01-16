@@ -25,5 +25,6 @@ Rails.application.routes.draw do
   resources :messages,            only: [:create, :destroy]
   resources :notifications, only: :index
   resources :problems
+  get :problem_search, to: 'problems#problem_search'
   resources :problem_comments, only: [:create, :destroy]
 end

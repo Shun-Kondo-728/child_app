@@ -1,5 +1,6 @@
 class ProblemsController < ApplicationController
   before_action :logged_in_user
+  before_action :set_problem_search
   before_action :correct_user, only: [:edit, :update]
 
   def index
@@ -48,6 +49,18 @@ class ProblemsController < ApplicationController
     else
       flash[:danger] = "他人の投稿は削除できません"
       redirect_to root_url
+    end
+  end
+
+  def problem_search
+  end
+
+  def set_problem_search
+    if logged_in?
+      @search = params[:q][:description_cont] if params[:q]
+      @q = current_user.feed_problem.page(params[:page]).per(10).ransack(params[:q])
+      @feed_problem_items = current_user.feed_problem.page(params[:page]).per(10)
+      @problems = @q.result(distinct: true)
     end
   end
 
