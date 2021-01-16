@@ -165,4 +165,67 @@ RSpec.describe "Problem posts", type: :system do
         end
     end
   end
+
+  context "search function" do
+    context "if you are logged in" do
+      before do
+        login_for_system(user)
+        visit problem_search_path
+      end
+
+      it "a search window is displayed on each page after login" do
+        expect(page).to have_css 'form#problem_search'
+      end
+
+      it "the result corresponding to the search word is displayed from the feed" do
+        create(:problem, description: 'こんな解決の仕方があります', user: user)
+        create(:problem, description: '解決方法はこれです', user: other_user)
+        create(:problem, description: 'どうやって使いますか', user: user)
+        create(:problem, description: '使い方はこうです', user: other_user)
+
+        fill_in 'q_description_cont', with: '解決'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”解決”の検索結果：1件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 1
+        end
+        fill_in 'q_description_cont', with: '使い'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”使い”の検索結果：1件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 1
+        end
+
+        user.follow(other_user)
+        fill_in 'q_description_cont', with: '解決'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”解決”の検索結果：2件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 2
+        end
+        fill_in 'q_description_cont', with: '使い'
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "”使い”の検索結果：2件"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: 2
+        end
+      end
+
+      it "if you press the search button without entering a search word, the problem post list will be displayed." do
+        fill_in 'q_description_cont', with: ''
+        click_button '検索'
+        expect(page).to have_css 'h3', text: "悩み投稿一覧"
+        within find('.posts') do
+          expect(page).to have_css 'li', count: Problem.count
+        end
+      end
+    end
+
+    context "if you are not logged in" do
+      it "the search window is not displayed" do
+        visit problem_search_path
+        expect(page).not_to have_css 'form#problem_search'
+      end
+    end
+  end
 end
