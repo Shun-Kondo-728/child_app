@@ -4,7 +4,7 @@
   <div class="row like-post">
     <div class="col-md-10 post-md">
       <p class="post-like-title"><%= link_to @post.title, post_path(@post) %></p>
-      <p class="post-like-description"><%= @post.description %></p>
+      <p class="post-like-description"><%= text_url_to_link(h(@post.description)).html_safe %></p>
       <div class="col-md-6">
         <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post), class: 'post-like-picture') if @post.picture.url.present? %>
       </div>

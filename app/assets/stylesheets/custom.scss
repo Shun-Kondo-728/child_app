@@ -404,10 +404,15 @@ a.profile-title {
       word-break: break-all;
       margin-left: 65px;
       padding-top: 10px;
+      width: 550px;
       font-size: 36px;
       img {
         display: block;
         padding: 5px 0;
+      }
+
+     a {
+        color: cornflowerblue;
       }
     }
     .timestamp {
@@ -524,6 +529,11 @@ a.profile-title {
       .post-description {
           padding-bottom: 30px;
           font-size: 40px;
+          display: block;
+          word-break: break-all;
+          a {
+            color: cornflowerblue;
+          }
       }
       h5 {
           font-size: 15px;
@@ -647,6 +657,9 @@ strong#followers {
     word-break: break-all;
     padding: 10px 20px;
     font-size: 30px;
+    a {
+        color: cornflowerblue;
+    }
 }
 
 .post-like-picture img {

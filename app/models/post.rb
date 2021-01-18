@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   mount_uploader :picture, PictureUploader
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 30 }
-  validates :description, length: { maximum: 200 }, presence: true
+  validates :description, length: { maximum: 800 }, presence: true
   validates :recommended,
             :numericality => {
               :only_interger => true,

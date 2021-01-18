@@ -24,10 +24,10 @@ RSpec.describe Post, type: :model do
       expect(post.errors[:title]).to include("は30文字以内で入力してください")
     end
 
-    it "The description must be 200 characters or less" do
-      post = build(:post, description: "あ" * 201)
+    it "The description must be 800 characters or less" do
+      post = build(:post, description: "あ" * 801)
       post.valid?
-      expect(post.errors[:description]).to include("は200文字以内で入力してください")
+      expect(post.errors[:description]).to include("は800文字以内で入力してください")
     end
 
     it "Must be invalid without user ID" do

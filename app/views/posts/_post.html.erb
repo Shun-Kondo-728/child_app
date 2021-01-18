@@ -3,7 +3,7 @@
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
   <span class="title"><%= link_to post.title, post_path(post) %></span>
-  <span class="description"><%= post.description %></span><br>
+  <span class="description"><%= text_url_to_link(h(post.description)).html_safe %></span><br>
   <span>
     <%= link_to((image_tag post.picture.thumb200.url), post_path(post.id), class: 'post-picture') if post.picture.url.present? %>
   </span><br>
