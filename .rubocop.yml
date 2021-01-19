@@ -63,3 +63,6 @@ Naming/VariableName:
 
 RSpec/EmptyExampleGroup:
   Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false

@@ -6,7 +6,7 @@ RSpec.describe "Users", type: :system do
   let!(:new_post) { create(:post, user: user) }
   let!(:other_new_post) { create(:post, user: other_user) }
   let!(:problem) { create(:problem, user: user) }
-  let!(:other_problem) { create(:problem, user: other_user) }  
+  let!(:other_problem) { create(:problem, user: other_user) }
   let!(:admin_user) { create(:user, :admin) }
 
   describe "User list page" do
