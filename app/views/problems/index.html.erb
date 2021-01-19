@@ -1,12 +1,12 @@
 <% provide(:title, '悩みの場') %>
 
 <div class="container">
-  <% flash.each do |message_type, message| %>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>
-  <%= render 'problems/search' if logged_in? %>
   <div class="index-summary">
-    <h1 class=users-title>悩みの場</h1>
+    <h1 class=problems-title>悩みの場</h1>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <%= render 'problems/search' if logged_in? %>
     <div class="row">
         <div class="col-md-9">
           <h3 class="post-title">ユーザーの悩み投稿 (<%= @feed_problem_items.count %>)</h3>

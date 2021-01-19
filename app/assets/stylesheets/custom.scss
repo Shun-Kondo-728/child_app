@@ -483,6 +483,7 @@ a.profile-title {
 
   #page {
       background-color: linen;
+      padding-bottom: 10px;
   }
 
   .delete-account {
@@ -922,6 +923,12 @@ ol {
 }
 
 //// problem ////
+.problems-title {
+    font-weight: bold;
+    text-align: center;
+    padding: 100px 0 80px 0;
+    font-size: 50px;
+}
 .problem-user-name {
     display: inline-block;
     font-size: 50px;
@@ -967,21 +974,29 @@ ol {
     height: 70px;
 }
 
+.problem-description {
+    display: block;
+    word-break: break-all;
+    margin-left: 65px;
+    padding-top: 10px;
+    width: 550px;
+    font-size: 36px;
+}
+
 //// search ////
 form#post_search {
     margin-top: 200px;
-   // width: 1000px;
+    margin-left: 25%;
+    margin-bottom: 50px;
 }
 
 input#q_title_cont {
-    width: 100%;
-    font-size: 30px;
+    width: 365px;
 }
 
 .form-group input.btn.btn-primary {
-    width: 100%;
-    padding: 10px 275px 10px 275px;
-    font-size: 30px;
+    width: 365px;
+    font-size: 20px;
     background-color: darkcyan;
     border-color: darkcyan;
 }
@@ -991,7 +1006,20 @@ input#q_title_cont {
 }
 
 form#problem_search {
-    padding-top: 200px;
+    margin-left: 20%;
+    margin-bottom: 80px;
+}
+
+#q_description_cont {
+    width: 365px;
+}
+
+#q_title_or_description_cont {
+    width: 365px;
+}
+
+.problem-search-area form {
+    margin-top: 150px;
 }
 
 @media screen and (min-width: 768px) {
@@ -1282,5 +1310,14 @@ form#problem_search {
 
 .delete-problem-post {
     font-size: 25px;
+}
+
+//// search ////
+form#post_search {
+    margin-left: 55%;
+}
+
+form#problem_search {
+    margin-left: 65%;
 }
 }
