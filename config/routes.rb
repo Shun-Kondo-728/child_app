@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
   get :help, to: 'static_pages#help'
   get :signup, to: 'users#new'
+  get :problem_search, to: 'problems#problem_search'
   resources :users do
     member do
       get :following, :followers
@@ -25,6 +26,5 @@ Rails.application.routes.draw do
   resources :messages,            only: [:create, :destroy]
   resources :notifications, only: :index
   resources :problems
-  get :problem_search, to: 'problems#problem_search'
   resources :problem_comments, only: [:create, :destroy]
 end
