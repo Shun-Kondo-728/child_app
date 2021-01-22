@@ -120,13 +120,13 @@ body {
 
   }
   h3{
-    font-size: 20px;
+    font-size: 50px;
     text-align: center;
     padding-bottom: 100px;;
   }
   h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 50px;
     padding-bottom: 120px;
   }
   span {
@@ -135,10 +135,12 @@ body {
   }
   p {
     text-align: center;
+    font-size: 30px;
   }
   .description {
     line-height: 2.5;
     margin-bottom: 60px;
+    font-size: 25px;
   }
 }
 
@@ -155,20 +157,21 @@ body {
 }
 
 .make {
-  height: 1600px;
+  height: 1800px;
   h1 {
-    margin-top: 400px;
+    margin-top: 600px;
     text-align: center;
-    font-size: 30px;
+    font-size: 50px;
   }
   h2 {
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
     padding: 20px 0;
   }
   p {
     margin-bottom: 50px;
     line-height: 1.5;
+    font-size: 30px;
   }
   .feature-list {
     text-align: center;
@@ -188,7 +191,7 @@ body {
   text-align: center;
   .btn-primary {
     padding: 20px 40px;
-    font-size: 20px;
+    font-size: 40px;
     background: rgb(127, 255, 0);
     border-color: chartreuse;
     margin-bottom: 50px;
@@ -388,24 +391,69 @@ a.profile-title {
 }
 
   //// postpage ////
+  .w-80 {
+    width: 90% !important;
+    margin: 0 5%;
+}
+  .login-top-image {
+      margin-top: 200px;
+      display: inline-block;
+      position: relative;
+      h1 {
+        width: 100%;
+        height: 100%;
+        color: #1a69e0;
+        font-weight: bold;
+        text-align: center;
+        font-size: 20px;
+        font-family: "Yu Gothic", "游ゴシック", YuGothic, "游ゴシック体";
+        position: absolute;
+        margin: auto;
+        top: 70%;
+        bottom: 0;
+      }
+
+      h2 {
+        width: 100%;
+        height: 1.5em;
+        color: #1a69e0;
+        font-weight: bold;
+        text-align: center;
+        font-size: 16px;
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: -10%;
+      }
+
+      li {
+        list-style: none;
+        padding-top: 20px;
+      }
+  }
   .posts {
     list-style: none;
     padding: 0;
     li {
-      padding: 10px 0;
-      border-top: 2px solid gainsboro;
+        display: block;
+        position: relative;
+        margin: 20px 0;
+        border: 1px solid #D3D0C9;
+        border-radius: 4px;
+        background-color: #fff;
+        width: 100%;
    }
     .user {
       margin-top: 5em;
       padding-top: 0;
     }
     .description {
-      display: block;
-      word-break: break-all;
-      margin-left: 65px;
-      padding-top: 10px;
-      width: 550px;
-      font-size: 36px;
+        display: block;
+        word-break: break-all;
+        margin-left: 85px;
+        padding-top: 50px;
+        /* width: 400px; */
+        font-size: 30px;
       img {
         display: block;
         padding: 5px 0;
@@ -422,20 +470,24 @@ a.profile-title {
       font-size: 30px;
     }
     .gravatar {
-      float: left;
-      margin: 5px 10px 0 0;
+        float: left;
+        margin: 20px 40px 0 20px;
+        width: 90px;
     }
   }
 
   .post-title {
-      padding-top: 80px;
-      font-weight: bold;
-      font-size: 50px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    font-weight: bold;
+    font-size: 45px;
+    text-align: center;
   }
 
   .title a {
     color: black;
     font-size: 40px;
+    padding-top: 30px;
     display: block;
     word-break: break-all;
  }
@@ -465,11 +517,13 @@ a.profile-title {
   }
 
   .recommended {
-      padding-top: 20px;
+    font-size: 30px;
+    padding-top: 50px;
+    padding-left: 120px;
   }
 
   .recommend-raty {
-      margin-left: 40px;
+      margin-left: 190px;
   }
 
   .fa-heart {
@@ -552,10 +606,10 @@ a.profile-title {
     color: gray;
 }
   .post-picture img {
-    max-width: 60%;
+    max-width: 100%;
     height: auto;
     box-sizing: border-box;
-    margin: 0 0 30px 40px;
+    margin: 0 0 30px 100px;
   }
 
   .post-info {
@@ -870,7 +924,7 @@ ol {
   
   .message-form {
     height: 80px;
-    margin: 10px 0;
+    margin: 40px 0;
     padding: 10px 70px 0 70px;
     &:after {
       display: block;
@@ -915,9 +969,11 @@ ol {
   }
 
   .btn-record {
-    margin-top: 5em;
+    margin: 10px 36%;
     background-color: darkcyan;
     border-color: darkcyan;
+    width: 200px;
+    font-size: 30px;
 }
 
 //// notification ////
@@ -1068,16 +1124,8 @@ form#problem_search {
       width: 50%;
       height: 50%;
     }
-    .description {
-      font-size: 15px;;
-    }
   }
-  .make {
-    height: 1600px;
-    h1 {
-      margin-top: 400px;
-    }
-  }
+  
 
 //// btn ////
 .btn-lg, .btn-group-lg > .btn {
@@ -1124,6 +1172,25 @@ form#problem_search {
 #title {
     font-size: 30px;
 }
+
+.help {
+    .description {
+      font-size: 15px;;
+    }
+}
+
+.make {
+    h1 {
+      margin-top: 400px;
+    }
+    h2 {
+        font-size: 25px;
+      }
+      p {
+        font-size: 20px;
+      }
+}
+
 
 //// sign_up ////
 .signup-block {
@@ -1194,13 +1261,17 @@ form#problem_search {
   }
 
   .btn-record {
-    margin: 10em 0 0 0;
+    margin: 0 43%;
     background-color: darkcyan;
     border-color: darkcyan;
 }
 
 //// postspage ////
 .posts {
+    li {
+        margin: 20px 15%;
+        width: 70%;
+    }
     .description {
         margin-left: 60px;
         font-size: 25px;
@@ -1353,7 +1424,7 @@ form#problem_search {
 
 //// search ////
 form#post_search {
-    margin-left: 55%;
+    margin: 10% 37%;
 }
 
 form#problem_search {
