@@ -826,6 +826,45 @@ ol {
       margin-right: 0;
     }
   }
+
+  .current_user {
+    color:white;
+    text-align: right;
+    background-color:steelblue;
+    width: fit-content;
+    margin: 10px 0 0 auto;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    box-sizing: border-box;
+    padding: 10px;
+    strong {
+        display: block;
+        word-break: break-all;
+    }
+}
+
+.visited_user {
+    color: #fff;
+    margin: 10px;
+    background-color:darkcyan;
+    text-align: left;
+    width: fit-content;
+    margin: 10px auto 0 0;
+    border-radius:30px;
+    -webkit-border-radius:30px;
+    -moz-border-radius:30px;
+    -ms-border-radius:30px;
+    -o-border-radius:30px;
+    box-sizing: border-box;
+    padding: 10px;
+    strong {
+        display: block;
+        word-break: break-all;
+    }
+}
   
  //// message form ////
   
