@@ -1,17 +1,13 @@
 <% if logged_in? %>
       <div id="carousel-2" class="carousel slide carousel-fade" data-ride="carousel" data-interval="6000">
-    <ol class="carousel-indicators">
-        <li data-target="#carousel-2" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-2" data-slide-to="1"></li>
-    </ol>
-    <div id="top-post-page" class="carousel-inner" role="listbox">
+    <div id="top-post-page">
         <div class="login-top-image">
-            <img src="/assets/enclosure.jpg" alt="responsive image" class="d-block image-fluid w-80">
-            <h1>育児や妊娠時にオススメなこと・物はありませんか？<br>
+            <img src="/assets/double.jpg" alt="responsive image" class="d-block image-fluid w-80">
+            <h1>育児や妊娠時にオススメなこと・ものはありませんか？<br>
             投稿してみんなで共有しよう！！！！</h1>
             <h2>もし悩みを抱えていたり、聞いて欲しいことがあるなら<br>
             悩みの場で信用できるフォロワーのみんなに解決してもらおう！<br>
-            <li><%= link_to '悩みの場にGo！！', problems_path, class: "link-color" %></li></h2>
+            <li><%= link_to '悩みの場にGo！！', problems_path, class: "link-color-go" %></li></h2>
         </div>
     </div>
     </div>
@@ -69,8 +65,9 @@
         <div class="feature-list">
             <div class="feature-item">
                 <img src="/assets/see.jpg" height="300px">
-                <h2>悩みを検索して見る</h2>
-                <p>自分が抱えている悩み疑問を検索して<br>
+                <h2>オススメのものや悩みを検索して見る</h2>
+                <p>みんなのオススメのもの・こと<br>
+                自分が抱えている悩み疑問を検索して<br>
                 ユーザーの投稿から調べて見る</p>
             </div>
             <div class="feature-item">
@@ -81,9 +78,9 @@
             </div>
             <div class="feature-item">
                 <img src="/assets/answer.jpg" height="300px">
-                <h2>悩みを聞いて教える</h2>
-                <p>他のユーザーの悩みや疑問に答えて<br>
-                一緒に解決する</p>
+                <h2>オススメのものを教える</h2>
+                <p>育児でオススメのもの・ことを<br>
+                みんなで共有する</p>
             </div>
     </div>
     </div>
