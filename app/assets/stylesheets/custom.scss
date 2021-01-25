@@ -278,7 +278,7 @@ img.gravatar.user-picture {
   }
   
 .user-picture-box {
-    margin: 0.5em 0 0 2em;
+    margin: 0.5em 0 0 10%;
 }
 
 .delete-account a {
@@ -303,8 +303,12 @@ a.profile-title {
 }
 
 .profile-post-title {
+    color: white;
+    padding: 10px 0;
     font-weight: bold;
-    padding-bottom: 10px;
+    font-size: 40px;
+    background-color: steelblue;
+    text-align: center;
 }
   
 .profile-comment {
@@ -1187,7 +1191,7 @@ form#problem_search {
 }
 
 .pagination {
-    margin-left: 180px;
+    margin-left: 15%;
 }
 
 #title {
@@ -1384,6 +1388,15 @@ form#problem_search {
 //// profilepage ////
 .profile-title {
     margin-top: 0;
+}
+
+.profile-post-title {
+    margin: 0 15%;
+    width: 70%;
+}
+
+.user-picture-box {
+    margin: 0.5em 0 0 20%;
 }
 
 //// post showpage////

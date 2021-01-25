@@ -1,5 +1,4 @@
 <% provide(:title, "プロフィール") %>
-<div class="container">
   <div class="profile-title">
     <div class="row">
         <div class="user-picture-box">
@@ -35,7 +34,7 @@
       <% end %>
     <% end %>
     <div class="row">
-      <div class="col-md-9">
+      <div class="col-md-12">
           <% if @user.posts.any? %>
             <h3 class="profile-post-title">投稿 (<%= @user.posts.count %>)</h3>
             <ol class="posts">
@@ -46,4 +45,3 @@
       </div>
     </div>
   </div>
-</div>
