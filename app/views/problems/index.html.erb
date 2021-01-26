@@ -1,20 +1,19 @@
 <% provide(:title, '悩みの場') %>
 
-<div class="container">
   <div class="index-summary">
     <h1 class=problems-title>悩みの場</h1>
+    <p class="problem-greeting">今日もお疲れ様です。<br>
+    ここでは普段言いにくい悩みや、困っていることを投稿する場所です。<br>
+    フォロワーのみんなから助言をもらったり、解決方法を聞いてみるのもあり！<br>
+    ひとりで抱え込まずみんなで協力しよう！
+    </p>
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
     <%= render 'problems/search' if logged_in? %>
-    <div class="row">
-        <div class="col-md-9">
+    <p><%= link_to "投稿する", new_problem_path, class: "btn btn-primary btn-lg btn-record1" %></p>
+        <div class="col-md-12">
           <h3 class="post-title">ユーザーの悩み投稿 (<%= @feed_problem_items.count %>)</h3>
           <%= render 'shared/feed_problem' %>
         </div>
-        <div class="col-md-2">
-          <p><%= link_to "投稿する", new_problem_path, class: "btn btn-primary btn-lg btn-record1" %></p>
-        </div>
-    </div>
   </div>
-</div>
