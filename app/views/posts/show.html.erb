@@ -14,7 +14,7 @@
     </div>
     <h4 class="post-description"><%= text_url_to_link(h(@post.description)).html_safe %></h4>
     <span class="picture">
-        <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture') if @post.picture.url.present? %>
+        <%= link_to((image_tag @post.picture.thumb400.url), post_path(@post.id), class: 'post-picture-edit') if @post.picture.url.present? %>
       </span>
     <div class="post-info">
       <div id="star-recommended-<%= @post.id %>"></div>

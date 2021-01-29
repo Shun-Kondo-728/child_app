@@ -275,7 +275,7 @@ body {
 }
 
 img.gravatar.user-picture {
-    padding-top: 100px;
+    padding-top: 110px;
 }
 
 .user-picture img {
@@ -294,7 +294,7 @@ img.gravatar.user-picture {
   
 .show-user-name {
     display: inline-block;
-    padding: 30px 0 0 40px;
+    padding: 0 0 0 40px;
     font-weight: bold;
     font-size: 40px;
 }
@@ -316,6 +316,7 @@ a.profile-title {
     font-size: 40px;
     background-color: steelblue;
     text-align: center;
+    margin-left: 1.2%;
 }
   
 .profile-comment {
@@ -633,6 +634,13 @@ a.profile-title {
     max-width: 100%;
     height: auto;
     box-sizing: border-box;
+    margin: 0 0 30px 15%;
+  }
+
+  .post-picture-edit img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
     margin: 0 0 30px 5%;
   }
 
@@ -670,9 +678,9 @@ a.profile-title {
 }
 
   .btn-follow {
-    margin: 40px 40px 0 40px;
-    padding: 20px 40px;
-    font-size: 30px;
+    margin: 40px 7% 0 7%;
+    padding: 10px 20px;
+    font-size: 20px;
 }
 
 strong#following {
@@ -778,7 +786,7 @@ ol {
       .comment {
         display: block;
         word-break: break-all;
-        font-size: 30px;
+        font-size: 20px;
         width: 100%;
         padding-left: 40px;
       }
@@ -788,7 +796,7 @@ ol {
   .comment-delete a {
     display: inline-block;
     padding-top: 20px;
-    padding-left: 90%;
+    padding-left: 83%;
     font-size: 15px;
     color: gray;
 }
@@ -854,10 +862,9 @@ ol {
   }
 
   .btn-chat {
-    margin-left: 130px;
-    padding: 20px 40px;
-    font-size: 30px;
-    margin: 20px 0 30px 0;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 20px 22.5% 70px 22.5%;
     border-color: palegoldenrod;
     background-color: palegoldenrod;
     border-style: none;
@@ -1040,6 +1047,7 @@ ol {
     display: block;
     word-break: break-all;
     font-size: 35px;
+    padding: 2% 0 0 5%;
 }
 
 .no-notification {
@@ -1463,6 +1471,9 @@ form#problem_search {
     margin: 0.5em 0 0 20%;
 }
 
+.btn-chat {
+    margin: 20px 28.7% 30px 28.7%;
+}
 //// post showpage////
 .post-show {
     .posts-title {
@@ -1498,7 +1509,7 @@ form#problem_search {
 
 //// comment ////
 .comment-delete a {
-    padding-left: 95%;
+    padding-left: 92%;
 }
 
 .comment-create-at {
