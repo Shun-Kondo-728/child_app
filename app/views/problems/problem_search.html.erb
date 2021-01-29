@@ -1,6 +1,5 @@
 <% provide(:title, '悩み投稿検索一覧') %>
 <div id="searchs">
-  <div class="container">
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
@@ -8,13 +7,12 @@
     <%= render 'problems/search' if logged_in? %>
     </div>
     <% if @search.present? %>
-      <h3>”<%= @search %>”の検索結果：<%= @problems.count %>件</h3>
+      <h3 class="search-case"><span class="square">■</span>”<%= @search %>”の検索結果：<%= @problems.count %>件</h3>
     <% else %>
-      <h3>悩み投稿一覧</h3>
+      <h3 class="search-case"><span class="square">■</span>悩み投稿一覧</h3>
     <% end %>
     <ul class="posts">
       <%= render @problems %>
     </ul>
     <%= paginate @problems %>
-  </div>
 </div>

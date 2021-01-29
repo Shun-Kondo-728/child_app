@@ -3,7 +3,7 @@
 
 <li id="problem-<%= problem.id %>">
   <%= link_to gravatar_for(problem.user, size: 50), problem.user %>
-  <span class="problem-user-name"><%= problem_user.name %></span><br>
+  <span class="problem-user"><%= problem_user.name %></span><br>
   <span class="problem-description"><%= link_to problem.description, problem_path(@problem) %></span><br>
   <span class="timestamp">
     <%= time_ago_in_words(problem.created_at) %>前に投稿
