@@ -66,3 +66,6 @@ RSpec/EmptyExampleGroup:
 
 Style/RedundantReturn:
   Enabled: false
+
+Style/MethodDefParentheses:
+  Enabled: false

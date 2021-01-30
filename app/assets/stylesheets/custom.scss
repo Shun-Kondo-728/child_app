@@ -757,12 +757,13 @@ strong#followers {
     font-size: 35px;
 }
 
-.btn-go-chat {
-    margin: 0 0 30px 155px;
+#btn-go-chat {
     border-color: palegoldenrod;
     background-color: palegoldenrod;
-    font-size: 30px;
     color: black;
+    margin: 40px 23% 0 23%;
+    padding: 10px 20px;
+    font-size: 20px;
 }
 
 //// like ////
@@ -874,7 +875,7 @@ ol {
   .comment-create-at {
     font-size: 15px;
     color: grey;
-    padding-left: 80%;
+    padding-left: 85%;
   }
 
   .btn-comment {
@@ -982,7 +983,6 @@ ol {
 
   .current_user {
     color:white;
-    text-align: right;
     background-color:steelblue;
     width: fit-content;
     margin: 10px 0 0 auto;
@@ -1002,7 +1002,7 @@ ol {
 .visited_user {
     color: #fff;
     margin: 10px;
-    background-color:darkcyan;
+    background-color: peru;
     text-align: left;
     width: fit-content;
     margin: 10px auto 0 0;
@@ -1042,12 +1042,15 @@ ol {
       float: left;
       width: 15%;
       height: 100% !important;
+      margin-top: 20px;
+      background-color: darkcyan;
+      border-color: darkcyan;
     }
   }
   
   #message_content {
       width: 80%;
-      margin-left: 40px;
+      margin:20px 0 0 40px;
   }
   
 .massage-title {
@@ -1617,7 +1620,7 @@ form#problem_search {
 }
 
 .comment-create-at {
-    padding-left: 90%;
+    padding-left: 93%;
 }
 
 //// message ////
@@ -1637,6 +1640,10 @@ form#problem_search {
 
 .sub-title {
     font-size: 30px;
+}
+
+#btn-go-chat {
+    margin: 40px 29% 0 29%;
 }
 
 //// notification ////
@@ -1683,7 +1690,7 @@ form#problem_search {
 }
 
 .btn-record1 {
-    margin-left: 46%;
+    margin-left: 45%;
 }
 
 textarea#problem_description {
@@ -1736,7 +1743,7 @@ form#post_search {
 }
 
 form#problem_search {
-    margin: 15% 39.5% 10% 39.5%;
+    margin: 15% 37% 10% 37%;
 }
 
 h3.search-case {

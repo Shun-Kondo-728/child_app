@@ -1,9 +1,9 @@
 <div class="dm-title">
-  <h1 class="massage-title">メッセージ</h1>
+  <h1 class="sub-title"><span class="square">■</span>メッセージ</h1>
     <ul class="messages">
     <%= render @messages %>
     </ul>
-    
+
     <%= form_for @message, url: messages_talk_path(@talk),
                         html: { class: 'message-form'} do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
