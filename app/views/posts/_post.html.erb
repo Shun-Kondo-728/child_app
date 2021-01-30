@@ -2,6 +2,7 @@
 
 <li id="post-<%= post.id %>">
   <%= link_to gravatar_for(post.user, size: 50), post.user %>
+  <%= link_to post.user.name, post.user, class:"user-post-name" %>
   <span class="title"><%= link_to post.title, post_path(post) %></span>
   <span class="description"><%= text_url_to_link(h(post.description)).html_safe %></span><br>
   <span>

@@ -1,7 +1,7 @@
 <% provide(:title, "投稿の編集") %>
 
-<div class="signup-block">
-  <div class="signup-group">
+<div class="signup-block-edit">
+  <div class="signup-group-edit">
     <h1 class="sign-title">投稿の編集</h1>
     <%= form_with model: @post, local: true do |f| %>
       <%= render "shared/error_messages", object: f.object %>
@@ -15,24 +15,31 @@
         <%=f.text_area :description, class: "form-control"%>
       </div>  
 
-      <span class="field">
-        <%= f.label :picture %> <span class="input-unneed">※任意</span>
+      <span class="field picture-edit">
+        <%= f.label :picture, "写真" %> <span class="input-unneed">※任意</span>
         <%= f.file_field :picture, accept: 'image/jpeg,image/png', class: 'form-control', id: 'post-picture' %>
-        <%= image_tag(@post.picture.thumb400.url) if @post.picture.url.present? %>
+        <%= image_tag(@post.picture.thumb200.url) if @post.picture.url.present? %>
       </span>
             
-      <div class="field"> 
+      <div class="field" id="star"> 
         <%=f.label :recommended, "オススメ度"%>
-        <%=f.text_field :recommended, class: "form-control"%>
-      </div>  
+        <%=f.hidden_field :recommended, id: :review_star, class: "form-control"%>
+      </div>
+
+      <script>
+      $('#star').raty({
+        size     : 36,
+        starOff:  '<%= asset_path('star-off.png') %>',
+        starOn : '<%= asset_path('star-on.png') %>',
+        scoreName: 'post[recommended]',
+      });
+      </script>  
             
       <div class="actions">  
         <%=f.submit '更新する', class: "btn btn-primary"%>
       </div>
-      <div class="post-delete">
       <%= link_to "投稿を削除する", post_path(@post), method: :delete,
-                             data: { confirm: "本当にこの投稿を削除してもよろしいですか？" } %>
-      </div>    
+                             data: { confirm: "本当にこの投稿を削除してもよろしいですか？" }, class: "post-delete-edit" %>   
     <% end %>
   </div>
 </div>

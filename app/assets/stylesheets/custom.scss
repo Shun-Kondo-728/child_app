@@ -255,6 +255,62 @@ body {
   }
 }
 
+.signup-block-edit {
+    height: 2100px;
+    position: relative; 
+  .signup-group-edit {
+      height: 1700px;
+      width: 90%;
+      margin: 0;
+      border-radius: 30px;
+      background-color: #fff;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      margin-right: -50%;
+      transform: translate(-50%, -40%);
+  }
+    .sign-title {
+      font-size: 50px;
+      font-weight: bold;
+      padding: 120px 0 60px 0;
+      text-align: center;
+      color: rgb(127, 255, 0);
+    }
+    .form-control {
+      display: block;
+      width: 80%;
+      margin: 0 auto;
+      padding: 20px 0;
+    }
+    label {
+      max-width: 100%;
+      font-size: 30px;
+      padding: 25px 0 20px 80px;
+    }
+    .actions {
+      text-align: center;
+    }
+    .btn-primary {
+      font-size: 45px;
+      width: 300px;
+      height: 400px;
+      color: #fff;
+      background-color: rgb(127, 255, 0);
+      border-color: rgb(127, 255, 0);
+      margin: 70px 0 30px 0;
+      border-radius: 20px;
+      padding: 20px;
+    }
+  }
+
+  .picture-edit {
+    img {
+        margin: 50px 0 50px 10%;
+        display: block;
+    }
+  }
+
 .field_with_errors {
     input {
         @extend .is-invalid;
@@ -510,7 +566,7 @@ a.profile-title {
   .title a {
     color: black;
     font-size: 40px;
-    padding-top: 30px;
+    padding: 70px 1% 0 8%;
     display: block;
     word-break: break-all;
  }
@@ -571,12 +627,22 @@ a.profile-title {
       text-align: center;
   }
 
+  .post-delete-edit {
+      text-align: center;
+      display: block;
+  }
+
   .change-post {
     display: inline-block;
     margin-bottom: 20px;
     padding-left: 5%;
   }
   
+  .user-post-name {
+    font-size: 40px;
+    padding-top: 40px;
+    display: block;
+}
 
 //// post new ////
 .input-need {
@@ -1337,6 +1403,39 @@ form#problem_search {
     }
   }
 
+  .signup-block-edit {
+    height: 1400px;
+    position: relative; 
+    .signup-group-edit {
+        height: 1200px;
+        width: 700px;
+    }
+    .sign-title {
+      font-size: 30px;
+      padding: 110px 0 10px 0;
+    }
+    .form-control {
+      width: 60%;
+      padding: 5px 0;
+    }
+    label {
+      font-size: 20px;
+      padding: 15px 0 10px 130px;
+    }
+    .btn-primary {
+      font-size: 25px;
+      width: 300px;
+      margin-top: 40px;
+      padding: 0;
+    }
+  }
+
+  .picture-edit {
+    img {
+        margin: 50px 0 50px 20%;
+    }
+  }
+
   //// main ////
   #title {
     font-size: 40px;
@@ -1402,6 +1501,7 @@ form#problem_search {
 }
 .title a {
     font-size: 25px;
+    padding-left: 13%;
 }
 
   .feature-item {
@@ -1429,6 +1529,10 @@ form#problem_search {
         font-size: 30px;
     }
   }
+
+  .user-post-name {
+    font-size: 30px;
+}
 
   //// indexpage ////
   .user-name {
@@ -1619,6 +1723,10 @@ textarea#problem_description {
 }
 
 .post-delete a {
+    font-size: 15px;
+}
+
+.post-delete-edit {
     font-size: 15px;
 }
 

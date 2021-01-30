@@ -24,7 +24,7 @@ ja:
         recommended: オススメ度
         description: 説明     
         user_id: 作成者のID
-        picture: 料理の写真
+        picture: 写真
       comment:
         user_id: コメント投稿者のID
         dish_id: コメントされた投稿のID

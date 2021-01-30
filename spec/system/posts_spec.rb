@@ -64,7 +64,7 @@ RSpec.describe "Posts", type: :system do
         expect(page).to have_content new_post.title
         expect(page).to have_content new_post.description
         find("#star-recommended-#{new_post.id}")
-        expect(page).to have_link nil, href: post_path(new_post), class: 'post-picture'
+        expect(page).to have_link nil, href: post_path(new_post), class: 'post-picture-edit'
       end
     end
 
@@ -105,7 +105,7 @@ RSpec.describe "Posts", type: :system do
           fill_in "post[title]", with: "編集：赤ちゃんが泣き止むおもちゃ"
           fill_in "説明", with: "編集：このおもちゃを鳴らせば泣き止む！"
           attach_file "post[picture]", "#{Rails.root}/spec/fixtures/test_post2.jpg"
-          fill_in "オススメ度", with: 4
+          find('#review_star', visible: false).set(4.0)
           click_button "更新する"
           expect(page).to have_content "投稿が更新されました！"
           expect(new_post.reload.title).to eq "編集：赤ちゃんが泣き止むおもちゃ"
@@ -119,14 +119,6 @@ RSpec.describe "Posts", type: :system do
           click_button "更新する"
           expect(page).to have_content 'タイトルを入力してください'
           expect(new_post.reload.title).not_to eq ""
-        end
-    end
-
-    context "post deletion process", js: true do
-        it "a flash of successful deletion is displayed" do
-          click_on '削除'
-          page.driver.browser.switch_to.alert.accept
-          expect(page).to have_content '投稿が削除されました'
         end
     end
 
