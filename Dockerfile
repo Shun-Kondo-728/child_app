@@ -22,4 +22,8 @@ COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
 
+ADD . /myapp
+
+RUN mkdir -p tmp/sockets
+
 CMD ["rails", "server", "-b", "0.0.0.0"] 

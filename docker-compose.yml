@@ -1,34 +1,42 @@
 version: '3'
 
-# サービスの定義
 services:
+    app:
+        build:
+            context: .
+        env_file:
+            - ./environments/db.env
+        command: bundle exec puma -C config/puma.rb
+        volumes:
+            - .:/webapp
+            - public-data:/myapp/public
+            - tmp-data:/myapp/tmp
+            - log-data:/myapp/log
+        depends_on:
+            - db
     db:
         image: mysql:5.7
-        environment:
-            MYSQL_USER: root
-            MYSQL_ROOT_PASSWORD: password
+        env_file:
+            - ./environments/db.env
         ports:
             - "3306:3306"
         volumes:
             - ./db/mysql/volumes:/var/lib/mysql
 
     web:
-        # 同じディレクトリ配下にあるDockerfileをビルド
-        build: .
-        command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
-        # ローカルPCのディレクトリをrubyコンテナにマウント
+        build:
+            context: containers/nginx
         volumes:
-            - .:/myapp
-            - gem_data:/usr/local/bundle
-        # アプリ公開ポートを指定<公開ポート番号>:<コンテナ内の転送先ポート>
+            - public-data:/myapp/public
+            - tmp-data:/myapp/tmp
         ports:
-            - 3000:3000
+            - 80:80
         depends_on:
-            - db 
-        # デバッグに使用するため設定
-        tty: true
-        stdin_open: true
+            - app
         
-# マウントするデータ領域を指定
 volumes:
   gem_data:
+  public-data:
+  tmp-data:
+  log-data:
+  db-data:
