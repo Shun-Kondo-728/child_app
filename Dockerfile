@@ -13,16 +13,16 @@ RUN apt-get update && apt-get install -y unzip && \
     sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list' && \
     apt-get update && apt-get install -y google-chrome-stable
 
-RUN mkdir /myapp
-WORKDIR /myapp
+RUN mkdir /child_app
+WORKDIR /child_app
 
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+COPY Gemfile /child_app/Gemfile
+COPY Gemfile.lock /child_app/Gemfile.lock
 
 RUN bundle install
-COPY . /myapp
+COPY . /child_app
 
-ADD . /myapp
+ADD . /child_app
 
 RUN mkdir -p tmp/sockets
 
