@@ -23,8 +23,8 @@ User.create!(
   )
 
   user1 = User.find(1)
-  user2 = User.find(11)
-  user3 = User.find(21)
+  user2 = User.find(2)
+  user3 = User.find(3)
   user1.follow(user3)
   user2.follow(user3)
   user3.follow(user1)
