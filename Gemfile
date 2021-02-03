@@ -22,6 +22,7 @@ gem 'faker'
 gem 'devise'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ransack'
+gem 'dotenv-rails'
 
 group :production do
  gem 'fog', '1.42'
