@@ -10,6 +10,7 @@ services:
             - public-data:/child_app/public
             - tmp-data:/child_app/tmp
             - log-data:/child_app/log
+        tty: true
         #  depends_on:
         #      - db
 
