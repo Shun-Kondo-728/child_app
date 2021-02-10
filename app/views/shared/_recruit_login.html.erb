@@ -5,13 +5,13 @@
     <%= form_for(:session, url: login_path, local: true) do |f| %>
       <div class="field"> 
         <%= f.label :email, "メールアドレス" %>
-        <%= f.email_field :email, class: "form-control", id: "user_email", value: 'saiyou@example.com' %>
+        <%= f.email_field :email, class: "form-control", id: "requruit_email", value: 'saiyou@example.com' %>
       </div>
       <div class="field"> 
         <%= f.label :password, "パスワード" %>
-        <%= f.password_field :password, class: "form-control", id: "user_password", value: 'password' %>
+        <%= f.password_field :password, class: "form-control", id: "requruit_password", value: 'password' %>
       </div>
-      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.label :remember_me, class: "checkbox inline requruit" do %>
         <%= f.check_box :remember_me %>
         <span>ログインしたままにする</span>
       <% end %>

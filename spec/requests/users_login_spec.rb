@@ -34,7 +34,7 @@ RSpec.describe "Sessions", type: :request do
   context "When logging out" do
     it "Make sure you log out only while logged in" do
       login_for_request(user)
-      expect(response).to redirect_to user_path(user)
+      expect(response).to redirect_to root_path
       # ログアウトする
       delete logout_path
       expect(response).to redirect_to root_path
