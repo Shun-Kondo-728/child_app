@@ -141,32 +141,6 @@ User.create!(
     ]
    )
 
-   post2 = Post.find(2)
-   post6 = Post.find(6)
-   post8 = Post.find(8)
-   post9 = Post.find(9)
-   post12 = Post.find(12)
-   post13 = Post.find(13)
-   post14 = Post.find(14)
-   post15 = Post.find(15)
-
-   user3.like(post2)
-   user3.like(post8)
-   user3.like(post13)
-   user3.like(post14)
-   user2.like(post6)
-   user1.like(post9)
-   user1.like(post12)
-   user2.like(post15)
-
-   # コメント
-   post6.comments.create(user_id: user2.id, content: "とてもいいですね！！")
-   post12.comments.create(user_id: user1.id, content: "使ってみます！")
-   post15.comments.create(user_id: user2.id, content: "参考になります！")
-
-   comment1 = Comment.find(1)
-   comment2 = Comment.find(2)
-   comment3 = Comment.find(3)
 
    Problem.create!(
       [
@@ -221,14 +195,3 @@ User.create!(
       ]
    )
 
-   problem2 = Problem.find(2)
-   problem8 = Problem.find(8)
-   problem10 = Problem.find(10)
-
-   problem2.problem_comments.create(user_id: user1.id, content: "一度病院に行ってみた方がいいですね。")
-   problem8.problem_comments.create(user_id: user2.id, content: "焦らずいきましょう！")
-   problem10.problem_comments.create(user_id: user1.id, content: "子供の動画など見せるといいですよ！")
-
-   problem_comment1 = ProblemComment.find(1)
-   problem_comment2 = ProblemComment.find(2)
-   problem_comment3 = ProblemComment.find(3)
