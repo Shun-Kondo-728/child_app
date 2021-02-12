@@ -48,7 +48,7 @@ body {
 }
 
 #title {
-  font-size: 50px;
+  font-size: 60px;
   padding-left: 10px;
   color: rgb(127, 255, 0);
 }
@@ -67,8 +67,20 @@ body {
 .link-color {
     color: darkcyan;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 30px;
 }
+
+.navbar-toggler-icon {
+    display: inline-block;
+    width: 2.5em;
+    height: 2.5em;
+    vertical-align: middle;
+    content: "";
+    background: no-repeat center center;
+    background-size: 100% 100%;
+}
+
+
 
 //// main ////
 #title-image {
@@ -331,7 +343,7 @@ body {
 }
 
 img.gravatar.user-picture {
-    padding-top: 110px;
+    padding: 120px 0 30px 0;
 }
 
 .user-picture img {
@@ -352,7 +364,7 @@ img.gravatar.user-picture {
     display: inline-block;
     padding: 0 0 0 40px;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .profile-title {
@@ -376,9 +388,10 @@ a.profile-title {
 }
   
 .profile-comment {
-    padding: 10px 40px 10px 40px;
+    padding: 20px 40px 20px 40px;
     display: block;
     word-break: break-all;
+    font-size: 25px;
 }
 
 #user-edit {
@@ -527,7 +540,7 @@ a.profile-title {
         word-break: break-all;
         margin-left: 85px;
         padding-top: 50px;
-        /* width: 400px; */
+        margin-right: 30px;
         font-size: 30px;
       img {
         display: block;
@@ -747,6 +760,7 @@ a.profile-title {
     margin: 40px 7% 0 7%;
     padding: 10px 20px;
     font-size: 20px;
+    background-color: chartreuse;
 }
 
 strong#following {
@@ -761,7 +775,7 @@ strong#followers {
     border-color: palegoldenrod;
     background-color: palegoldenrod;
     color: black;
-    margin: 40px 23% 0 23%;
+    margin: 40px 7% 0 7%;
     padding: 10px 20px;
     font-size: 20px;
 }
@@ -931,7 +945,7 @@ ol {
   .btn-chat {
     padding: 10px 20px;
     font-size: 20px;
-    margin: 20px 22.5% 70px 22.5%;
+    margin: 40px 7% 40px 7%;
     border-color: palegoldenrod;
     background-color: palegoldenrod;
     border-style: none;
@@ -1395,6 +1409,10 @@ form#problem_search {
     border: none;
 }
 
+.link-color {
+    font-size: 20px;
+}
+
 .pagination {
     margin-left: 15%;
 }
@@ -1642,9 +1660,18 @@ form#problem_search {
     margin: 0.5em 0 0 20%;
 }
 
-.btn-chat {
-    margin: 20px 28.7% 30px 28.7%;
+.show-user-name {
+    font-size: 40px;
 }
+
+.profile-comment {
+    font-size: 20px;
+}
+
+img.gravatar.user-picture {
+    padding-top: 110px;
+}
+
 //// post showpage////
 .post-show {
     .posts-title {
@@ -1706,9 +1733,6 @@ form#problem_search {
     font-size: 30px;
 }
 
-#btn-go-chat {
-    margin: 40px 29% 0 29%;
-}
 
 //// notification ////
 .notification-view {
