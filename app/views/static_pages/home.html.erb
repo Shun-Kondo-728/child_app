@@ -15,7 +15,7 @@
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>
       <%= render 'posts/search' if logged_in? %>
-      <p><%= link_to "投稿する", new_post_path, class: "btn btn-primary btn-lg btn-record" %></p>
+      <p class="p-post"><%= link_to "投稿する", new_post_path, class: "btn btn-primary btn-lg btn-record" %></p>
       <div class="col-md-12">
         <h3 class="post-title">ユーザーの投稿 (<%= @feed_items.count %>)</h3>
         <%= render 'shared/feed' %>

@@ -519,6 +519,10 @@ a.profile-title {
     font-size: 20px;
   }
 
+  .p-post {
+      text-align: center;
+  }
+
   .posts {
     list-style: none;
     padding: 0;
@@ -1085,7 +1089,6 @@ ol {
   }
 
   .btn-record {
-    margin: 10px 39% 60px 39%;
     background-color: darkcyan;
     border-color: darkcyan;
     width: 200px;
@@ -1255,15 +1258,15 @@ textarea#problem_description {
 }
 //// search ////
 form#post_search {
-    margin: 200px 29% 100px 29%;
+    margin: 200px 0 100px 20%;
 }
 
 input#q_title_cont {
-    width: 365px;
+    width: 100%;
 }
 
 .form-group input.btn.btn-primary {
-    width: 365px;
+    width: 100%;
     font-size: 20px;
     background-color: darkcyan;
     border-color: darkcyan;
@@ -1274,22 +1277,22 @@ input#q_title_cont {
 }
 
 form#problem_search {
-    margin: 200px 30% 100px 30%;
+    margin: 15% 0 10% 18%;
 }
 
 #q_description_cont {
-    width: 365px;
+    width: 100%;
+    margin: 100px 0 20px 0;
 }
 
 #q_title_or_description_cont {
-    width: 365px;
+    width: 100%;
 }
 
 .btn-record1 {
     background-color: darkcyan;
     border-color: darkcyan;
-    margin-left: 43%;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
 }
 
 //// requruit ////
@@ -1561,7 +1564,6 @@ form#problem_search {
   }
 
   .btn-record {
-    margin: 5% 43%;
     background-color: darkcyan;
     border-color: darkcyan;
 }
@@ -1777,9 +1779,6 @@ img.gravatar.user-picture {
     font-size: 25px;
 }
 
-.btn-record1 {
-    margin-left: 45%;
-}
 
 textarea#problem_description {
     padding: 20px;
@@ -1827,11 +1826,11 @@ textarea#problem_description {
 
 //// search ////
 form#post_search {
-    margin: 15% 36.5% 10% 36.5%;
+    margin: 200px 0 100px 22%;
 }
 
 form#problem_search {
-    margin: 15% 37% 10% 37%;
+    margin: 15% 0 10% 20%;
 }
 
 h3.search-case {
