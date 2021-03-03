@@ -31,6 +31,8 @@ ja:
         content: コメント
       problem:
         description: 内容
+      message:
+        content: コメント
   date:
     abbr_day_names:
     - 日
